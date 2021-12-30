@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Sitemap(props) {
-    const pages = props.pages.map(page => <li><Link to={page[1]}>{page[0]}</Link></li>)
+    const pages = props.pages.map((page, index) => <li key={index}><Link to={page[1]}>{page[0]}</Link></li>)
     return <ul>{pages}</ul>
 }
 
@@ -24,9 +24,9 @@ function Index() {
                     </div>
                 </div>
             </div>
-            <div class="container py-3 py-md-5">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 py-3">
+            <div className="container py-3 py-md-5">
+                <div className="row justify-content-center">
+                    <div className="col-md-6 py-3">
                         <ul>
                             <Sitemap pages={sitemapPages} />
                         </ul>
