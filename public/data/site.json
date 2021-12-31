@@ -53,23 +53,18 @@
       ]
     ],
     "productsInCatalog": [
-      [308, 184, "/f2f3f7"],
-      [
-        [
-          "BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag"
-        ],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"],
-        ["BH30/803 - ROGER Brushless"]
-      ]
+      {"name": "BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"},
+      {"name": "BH30/803 - ROGER Brushless"}
     ],
     "productsInCatalogBottom": [
       [296, 288, "/f2f3f7"],

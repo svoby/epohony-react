@@ -1,6 +1,7 @@
+import { ArrowRightIcon } from '@heroicons/react/outline'
 import React from 'react'
 
-function CardProduct() {
+function CardProduct(props) {
     return (
         <div className="card h-100 bg-100">
             <a href="./product.html">
@@ -21,8 +22,10 @@ function CardProduct() {
                     </div>
                     <div className="card__rating mb-3">
                         <div className="card__rating__rate" style={{ width: 50 + '%' }}></div>
-                    </div><a className="hover-border-secondary hover-up transition-primary" href="./product.html">
-                        <div className="font-weight-semibold line-h-133 line-clamp line-clamp__2">BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag</div></a>
+                    </div>
+                    <a className="hover-border-secondary hover-up transition-primary" href="./product.html">
+                        <div className="font-weight-semibold line-h-133 line-clamp line-clamp__2">{props.name}</div>
+                    </a>
                 </div>
                 <div className="letter-spacing-sm">
                     <div className="d-flex justify-content-between">
@@ -32,11 +35,7 @@ function CardProduct() {
                         <s className="text-muted mt-1">1.780 Kč</s>
                     </div>
                 </div>
-                <a className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" href="./cart.html">Vložit do košíku
-                    {/* <svg className="ico arrow-right sx-24">
-                        <use xlink:href="build/svg/sprite.defs.svg#arrow-right"></use>
-                    </svg> */}
-                </a>
+                <a className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" href="#!">Vložit do košíku <ArrowRightIcon className="ico sx-24" /></a>
             </div>
         </div>
     )

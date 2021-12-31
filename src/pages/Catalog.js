@@ -4,6 +4,9 @@ import CategoryList from '../components/CategoryList'
 import SidemenuCategoryTitle from '../components/SideMenuTitle'
 import Spacer from '../components/Spacer'
 import CardProduct from '../components/CardProduct'
+import Container from '../layout/Container'
+import Row from '../layout/Row'
+import Col from '../layout/Col'
 
 function SideMenuItem(props) {
     return <li className="d-flex">
@@ -31,6 +34,7 @@ function Catalog() {
     const [dataCategorySubcategories, setDataCategorySubcategories] = useState()
     const [dataProductCategories, setDataProductCategories] = useState()
     const [dataManufacturers, setDataManufacturers] = useState()
+    const [dataProductsInCatalog, setDataProductsInCatalog] = useState()
 
     useEffect(() => {
         fetch(siteDataUrl)
@@ -40,35 +44,37 @@ function Catalog() {
                 setDataProductCategories(data.$Data.productCategories)
                 setDataManufacturers(data.$Data.productManufacturers)
                 setDataCategorySubcategories(data.$Data.productCategorySubcategories)
+                setDataProductsInCatalog(data.$Data.productsInCatalog)
             })
     }, [])
 
     return (
         <>
             <Spacer size="pt-4 pt-md-5" />
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-3 mt-6 mt-lg-0 order-1 order-lg-0">
+            <Container>
+                <Row>
+                    <Col size="col-lg-3 mt-6 mt-lg-0 order-1 order-lg-0">
                         <SidemenuCategoryTitle title="Kategorie" />
                         <SideMenuNav items={dataProductCategories} />
                         <Spacer size="pt-4 pt-md-5" />
                         <SidemenuCategoryTitle title="Výrobci pohonů" />
                         <SideMenuNav items={dataManufacturers} />
-                    </div>
-                    <div className="col-lg-9">
+                    </Col>
+                    <Col size="col-lg-9">
                         <Spacer size="pt-4 pt-md-5" />
                         <CategoryInfo {...dataCategoryInfo} />
                         <Spacer size="pt-4 pt-md-5" />
                         <CategoryList items={dataCategorySubcategories} />
                         <Spacer size="pt-4 pt-md-5" />
-                        <div className="row gutters-md">
-                            <div className="col-md-6 col-lg-4 mb-2">
-                                <CardProduct />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <Row size="gutters-md">
+                            {dataProductsInCatalog && dataProductsInCatalog.map((product, key) => (
+                                <Col size="col-md-6 col-lg-4 mb-2" key={key}>
+                                    <CardProduct {...product} />
+                                </Col>))}
+                        </Row>
+                    </Col>
+                </Row>
+            </Container>
         </>
     )
 }
