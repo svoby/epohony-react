@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react'
 import CategoryInfo from '../components/CategoryInfo'
 import CategoryList from '../components/CategoryList'
 import SidemenuCategoryTitle from '../components/SideMenuTitle'
-import Spacer from '../components/Spacer'
 import CardProduct from '../components/CardProduct'
-import Container from '../layout/Container'
-import Row from '../layout/Row'
-import Col from '../layout/Col'
+import { Container, Row, Col, Spacer } from "../layout/Grid";
 
 function SideMenuItem(props) {
     return <li className="d-flex">
