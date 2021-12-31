@@ -1,0 +1,149 @@
+{
+  "$Data": {
+    "site": {
+      "title": "ePohony"
+    },
+    "categoryInfo": {
+      "title": "Category title",
+      "subtitle": "Category subtitle",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare sed massa est orci bibendum magnis sagittis eget. Euismod ac ultrices vestibulum in sed volutpat ut. Fusce aenean eget condimentum bibendum faucibus sit. Purus varius velit massa diam. Tristique diam sed nunc nibh turpis id aliquet. Diam amet pretium urna, ante tristique. Odio varius interdum iaculis etiam mauris, velit amet elit."
+    },
+    "productCategories": [
+      {"name": "Pohony bran a vrat", "icon": "assets/images/svg/ico-kridlo.svg"},
+      {"name": "Automatické závory", "icon": "assets/images/svg/ico-zavora.svg"},
+      {"name": "Dálkové ovládání", "icon": "assets/images/svg/ico-ovladac.svg"},
+      {"name": "Přístupové systémy", "icon": "assets/images/svg/ico-gsm.svg"},
+      {"name": "Příslušenství pohonů", "icon": "assets/images/svg/ico-clog.svg"},
+      {"name": "Náhradní díly", "icon": "assets/images/svg/ico-dily.svg"},
+      {"name": "Kování pro brány, vrata", "icon": "assets/images/svg/ico-brany-kovani.svg"},
+      {"name": "Konstrukce pro brány", "icon": "assets/images/svg/ico-brany-konstrukce.svg"}
+    ],
+    "productManufacturers": [
+      {"name":"Pohony ROGER Technology"},
+      {"name": "Pohony Telcoma-Cardin"},
+      {"name": "Pohony bran FAAC"},
+      {"name": "Pohony bran NICE"}
+    ],
+    "productCategorySubcategories": [
+      {"name": "Pohony bran do 400 kg"},
+      {"name": "Pohony bran do 600 kg"},
+      {"name": "Pohony bran do 800 kg"},
+      {"name": "Pohony bran nad 800 kg"},
+      {"name": "Kompletní řešení"},
+      {"name": "Sestavy posuvných bran"},
+      {"name": "Konstrukční prvky bran"},
+      {"name": "Ozubené hřebeny"},
+      {"name": "Řídící jednotky pohonů"},
+      {"name": "Sady pohonů"},
+      {"name": "Sady pohonů s hřebeny"},
+      {"name": "Nesené brány"},
+      {"name": "Pohony samostatné"},
+      {"name": "Šíny - C profily"},
+      {"name": "Šíny pro závěsná vrata"}
+    ],
+    "products": [
+      [296, 288, "/f2f3f7"],
+      [
+        [
+          "BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag"
+        ],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"]
+      ]
+    ],
+    "productsInCatalog": [
+      [308, 184, "/f2f3f7"],
+      [
+        [
+          "BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag"
+        ],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"]
+      ]
+    ],
+    "productsInCatalogBottom": [
+      [296, 288, "/f2f3f7"],
+      [
+        [
+          "BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag"
+        ],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"]
+      ]
+    ],
+    "productsAlternatives": [
+      [296, 288, "/f2f3f7"],
+      [
+        [
+          "BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag"
+        ],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"]
+      ]
+    ],
+    "productsHomepage": [
+      [296, 288, "/f2f3f7"],
+      [
+        [
+          "BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag"
+        ],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"]
+      ]
+    ],
+    "productsSales": [
+      [192, 132, "/f2f3f7"],
+      [
+        [
+          "BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag"
+        ],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"],
+        ["BH30/803 - ROGER Brushless"]
+      ]
+    ],
+    "cartContent": [
+      ["T64B - čtyřkanálový dálkový ovladač"],
+      ["HN800 - Nylonový hřeben s ocelovým jádrem do hmotnosti 800kg"],
+      ["T64B - čtyřkanálový dálkový ovladač"],
+      ["HN800 - Nylonový hřeben s ocelovým jádrem do hmotnosti 800kg"]
+    ],
+    "shippings": [
+      ["DPD Parcel shop", ["T64B"], ["Zdarma"]],
+      ["DPD Kurýr", ["Rozvoz kurýrem po celé ČR"], ["190 Kč"]],
+      ["Top Trans", ["Rozvoz objemnějších zásilek po celé ČR"], ["270 Kč"]]
+    ],
+    "payments": [
+      ["Převodem", ["Po zaplacení zboží odesíláme"], ["Zdarma"]],
+      ["Kartou", ["V posledím kroku budete přesměrováni na platební bránu"], ["Zdarma"]],
+      ["Na dobírku", ["Zaplatíte při doručení kurýrovi"], ["30 Kč"]]
+    ],
+    "userMenu": [
+      ["Osobní údaje", "./user-info.html", false],
+      ["Moje objednávky", "./user-orders.html", true],
+      ["Moje doklady", "./user-documents.html", false],
+      ["Moje adresy", "./user-addresses.html", false],
+      ["Vyhledat dokumenty", "./user-search.html", false]
+    ]
+  }
+}
