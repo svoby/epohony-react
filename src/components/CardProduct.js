@@ -4,7 +4,7 @@ function CardProduct() {
     return (
         <div className="card h-100 bg-100">
             <a href="./product.html">
-                <picture className="d-flex align-items-end p-2 pt-md-5 w-100 hover-up transition-primary"><img className="w-100" src="https://via.placeholder.com/308x184.png/f2f3f7" /></picture>
+                <picture className="d-flex align-items-end p-2 pt-md-5 w-100 hover-up transition-primary"><img className="w-100" src="https://via.placeholder.com/308x184.png/f2f3f7" alt="" /></picture>
             </a>
             <div className="d-flex flex-column justify-content-between h-100 px-4 pt-3 pb-4">
                 <div className="card-title">

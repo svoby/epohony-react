@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Catalog from './pages/Catalog'
 import Product from "./pages/Product";
-import Layout from "./components/Layout";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 

@@ -3,7 +3,6 @@ import CategoryInfo from '../components/CategoryInfo'
 import CategoryList from '../components/CategoryList'
 import SidemenuCategoryTitle from '../components/SideMenuTitle'
 import Spacer from '../components/Spacer'
-import { UserIcon } from '@heroicons/react/outline'
 import CardProduct from '../components/CardProduct'
 
 function SideMenuItem(props) {
