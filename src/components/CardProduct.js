@@ -1,12 +1,13 @@
 import { ArrowRightIcon } from '@heroicons/react/outline'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function CardProduct(props) {
     return (
         <div className="card h-100 bg-100">
-            <a href="#!">
+            <Link to={`/product/${props.id}`}>
                 <picture className="d-flex align-items-end p-2 pt-md-5 w-100 hover-up transition-primary"><img className="w-100" src="https://via.placeholder.com/308x184.png/f2f3f7" alt="" /></picture>
-            </a>
+            </Link>
             <div className="d-flex flex-column justify-content-between h-100 px-4 pt-3 pb-4">
                 <div className="card-title">
                     <div className="card__tags">
@@ -23,16 +24,17 @@ function CardProduct(props) {
                     <div className="card__rating mb-3">
                         <div className="card__rating__rate" style={{ width: 50 + '%' }}></div>
                     </div>
-                    <a className="hover-border-secondary hover-up transition-primary" href="./product.html">
-                        <div className="font-weight-semibold line-h-133 line-clamp line-clamp__2">{props.name}</div>
-                    </a>
+                    <Link to={`/product/${props.id}`} className="hover-border-secondary hover-up transition-primary">
+                        <div className="font-weight-semibold line-h-133 line-clamp line-clamp__2">{props.attributes.name}</div>
+                    </Link>
                 </div>
                 <div className="letter-spacing-sm">
                     <div className="d-flex justify-content-between">
-                        <div><span className="h5 mb-0">8&nbsp;990&nbsp;Kč </span>s&nbsp;DPH
+                        <div>
+                            <span className="h5 mb-0">8&nbsp;990&nbsp;Kč </span>s&nbsp;DPH
                             <div className="d-block text-micro">2&nbsp;000 bez&nbsp;DPH</div>
                         </div>
-                        <s className="text-muted mt-1">1.780 Kč</s>
+                        <s className="text-muted mt-1">${props.id}1.780 Kč</s>
                     </div>
                 </div>
                 <a className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" href="#!">Vložit do košíku <ArrowRightIcon className="ico sx-24" /></a>

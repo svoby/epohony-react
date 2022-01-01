@@ -3,7 +3,22 @@ import CategoryInfo from '../components/CategoryInfo'
 import CategoryList from '../components/CategoryList'
 import SidemenuCategoryTitle from '../components/SideMenuTitle'
 import CardProduct from '../components/CardProduct'
-import { Container, Row, Col, Spacer } from "../layout/Grid";
+import { Container, Row, Col, Spacer } from "../layout/Grid"
+import { request, gql } from 'graphql-request'
+
+const GRAPH_QL_API_ENTRYPOINT = process.env.NODE_ENV === 'development' ? 'http://localhost:1337/graphql' : 'https://epohony-strapi.herokuapp.com/graphql'
+const queryProductsInCategory = gql`
+    query {
+        products {
+            data {
+                id
+                attributes {
+                    name
+                }
+            }
+        }
+    }
+`
 
 function SideMenuItem(props) {
     return <li className="d-flex">
@@ -41,8 +56,10 @@ function Catalog() {
                 setDataProductCategories(data.$Data.productCategories)
                 setDataManufacturers(data.$Data.productManufacturers)
                 setDataCategorySubcategories(data.$Data.productCategorySubcategories)
-                setDataProductsInCatalog(data.$Data.productsInCatalog)
             })
+
+        request(GRAPH_QL_API_ENTRYPOINT, queryProductsInCategory)
+            .then((data) => setDataProductsInCatalog(data.products.data))
     }, [])
 
     return (
