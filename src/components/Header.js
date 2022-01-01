@@ -5,7 +5,7 @@ import { UserIcon, ShoppingCartIcon, MenuIcon } from '@heroicons/react/outline';
 export default function Header(props) {
   return <header className="main bg-gradient-primary py-3 text-white">
     <div className="container">
-      <Link to="/"><img className="logo-main" src="assets/images/logo-site.svg" alt="ePohony" width="145" /></Link>
+      <Link to="/"><img className="logo-main" src="/assets/images/logo-site.svg" alt="ePohony" width="145" /></Link>
       <div className="d-none d-lg-block h5 font-weight-normal text-white mb-0">Pohony bran, vrat a parkovací zábrany</div>
       <div>
         <a className="d-inline-flex align-items-center text-white text-micro hover-secondary" href="./user-info.html">

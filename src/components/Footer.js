@@ -7,7 +7,7 @@ export default function Footer() {
                 <div className="col-12 col-md-3 col-lg-6">
                     <div className="d-flex h-100 justify-content-between flex-column">
                         <div className="small line-h-120 mb-4">
-                            <img className="img-fluid mb-4" src="assets/images/logo-site.svg" alt="ePohony" width="165" />
+                            <img className="img-fluid mb-4" src="/assets/images/logo-site.svg" alt="ePohony" width="165" />
                             <p>2021 © Epohony.cz<br />Všechna práva vyhrazena</p>
                         </div>
                         <div className="mb-4 mb-md-0">

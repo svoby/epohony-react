@@ -10,7 +10,7 @@ function Index() {
 
     const sitemapPages = [
         ['Homepage', "/"],
-        ['Catalog', "/catalog"],
+        ['Category', "/category/1"],
         ['Product', "/product"]]
 
     return (
