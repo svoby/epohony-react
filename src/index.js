@@ -6,6 +6,7 @@ import Category from './pages/Category'
 import Product from "./pages/Product";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CatalogLayout from "./layout/CatalogLayout";
 
 class App extends React.Component {
   render() {
@@ -13,9 +14,18 @@ class App extends React.Component {
       <Header />
       <Routes>
         <Route path="/" element={<Sitemap />}></Route>
-        <Route path="/category" element={<Category />}></Route>
-        <Route path="/category/:id" element={<Category />}></Route>
-        <Route path="/product" element={<Product />}></Route>
+        <Route path="/category/:id" element={
+          <CatalogLayout>
+            <Category />
+          </CatalogLayout>
+        }>
+        </Route>
+        <Route path="/product/:id" element={
+          <CatalogLayout>
+            <Product />
+          </CatalogLayout>
+        }>
+        </Route>
       </Routes>
       <Footer />
     </Router>
