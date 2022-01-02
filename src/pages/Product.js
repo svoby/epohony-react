@@ -38,84 +38,88 @@ function Product() {
     return (
         <>
             {productData &&
-                <Col size="col-lg-9">
-                    <h1 className='line-h-100'>{productData && productData.attributes.name}</h1>
-                    <h2 className="h3 mb-0">{productData && productData.attributes.name}</h2>
+                <>
+                    <Col size="col-lg-9">
+                        <h1 className='line-h-100'>{productData && productData.attributes.name}</h1>
+                        <h2 className="h3 mb-0">{productData && productData.attributes.name}</h2>
 
-                    <Spacer size="pt-5" />
+                        <Spacer size="pt-5" />
 
-                    <div className="product-detail">
-                        <Row>
-                            <Col size="col-lg-6 mb-5 mb-lg-0">
-                                <div className="product-gallery-preview">
-                                    <ProductImage id={0} activeId={activeImageId} />
-                                    <ProductImage id={1} activeId={activeImageId} />
-                                    <ProductImage id={2} activeId={activeImageId} />
-                                    <ProductImage id={3} activeId={activeImageId} />
-                                </div>
-                                <div className="product-gallery-thumblist">
-                                    <ProductImageThumbnail id={0} activeId={activeImageId} onClickHandler={(id) => setActiveDetailImage(id)} />
-                                    <ProductImageThumbnail id={1} activeId={activeImageId} onClickHandler={(id) => setActiveDetailImage(id)} />
-                                    <ProductImageThumbnail id={2} activeId={activeImageId} onClickHandler={(id) => setActiveDetailImage(id)} />
-                                    <ProductImageThumbnail id={3} activeId={activeImageId} onClickHandler={(id) => setActiveDetailImage(id)} />
-                                </div>
-                            </Col>
-                            <Col size="col-lg-6">
-                                <div className="product-info">
-                                    <table className="w-100 mb-5">
-                                        <tbody>
-                                            <tr>
-                                                <th className="py-2">Kód produktu</th>
-                                                <td>KIT R20/502/1W</td>
-                                            </tr>
-                                            <tr>
-                                                <th className="py-2">Hmotnost</th>
-                                                <td>11 340 g</td>
-                                            </tr>
-                                            <tr>
-                                                <th className="py-2">Dostupnost</th>
-                                                <td className="text-success">Skladem</td>
-                                            </tr>
-                                            <tr>
-                                                <th className="py-2">Výrobce</th>
-                                                <td>Roger Industries</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div className="text-700">
-                                        <p>Schlitz live-edge pinterest hell of migas. Food truck small batch actually, pork belly hammock pinterest paleo prism intelligentsia enamel pin pickled try-hard copper mug gluten-free.</p>
+                        <div className="product-detail">
+                            <Row>
+                                <Col size="col-lg-6 mb-5 mb-lg-0">
+                                    <div className="product-gallery-preview">
+                                        <ProductImage id={0} activeId={activeImageId} />
+                                        <ProductImage id={1} activeId={activeImageId} />
+                                        <ProductImage id={2} activeId={activeImageId} />
+                                        <ProductImage id={3} activeId={activeImageId} />
                                     </div>
-                                    <div className="bg-secondary-alpha-10 rounded p-4 mt-5">
-                                        <div className="text-micro font-weight-bold text-muted">
-                                            <s>2&nbsp;600&nbsp;Kč</s>
+                                    <div className="product-gallery-thumblist">
+                                        <ProductImageThumbnail id={0} activeId={activeImageId} onClickHandler={(id) => setActiveDetailImage(id)} />
+                                        <ProductImageThumbnail id={1} activeId={activeImageId} onClickHandler={(id) => setActiveDetailImage(id)} />
+                                        <ProductImageThumbnail id={2} activeId={activeImageId} onClickHandler={(id) => setActiveDetailImage(id)} />
+                                        <ProductImageThumbnail id={3} activeId={activeImageId} onClickHandler={(id) => setActiveDetailImage(id)} />
+                                    </div>
+                                </Col>
+                                <Col size="col-lg-6">
+                                    <div className="product-info">
+                                        <table className="w-100 mb-5">
+                                            <tbody>
+                                                <tr>
+                                                    <th className="py-2">Kód produktu</th>
+                                                    <td>KIT R20/502/1W</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className="py-2">Hmotnost</th>
+                                                    <td>11 340 g</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className="py-2">Dostupnost</th>
+                                                    <td className="text-success">Skladem</td>
+                                                </tr>
+                                                <tr>
+                                                    <th className="py-2">Výrobce</th>
+                                                    <td>Roger Industries</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div className="text-700">
+                                            <p>Schlitz live-edge pinterest hell of migas. Food truck small batch actually, pork belly hammock pinterest paleo prism intelligentsia enamel pin pickled try-hard copper mug gluten-free.</p>
                                         </div>
-                                        <div className="h3 mb-0">{productData.attributes.price}&nbsp;Kč</div>
-                                        <div className="text-micro font-weight-bold mb-4">1&nbsp;470 Kč s DPH</div>
-                                        <button className="btn btn-secondary btn-lg w-100">
-                                            <ShoppingCartIcon className="ico sx-24 mr-2 align-text-bottom" /> VLOŽIT DO KOŠÍKU
-                                        </button>
+                                        <div className="bg-secondary-alpha-10 rounded p-4 mt-5">
+                                            <div className="text-micro font-weight-bold text-muted">
+                                                <s>2&nbsp;600&nbsp;Kč</s>
+                                            </div>
+                                            <div className="h3 mb-0">{productData.attributes.price}&nbsp;Kč</div>
+                                            <div className="text-micro font-weight-bold mb-4">1&nbsp;470 Kč s DPH</div>
+                                            <button className="btn btn-secondary btn-lg w-100">
+                                                <ShoppingCartIcon className="ico sx-24 mr-2 align-text-bottom" /> VLOŽIT DO KOŠÍKU
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
+                                </Col>
+                            </Row>
+                        </div>
 
-                    <Spacer size="pt-6" />
+                        <Spacer size="pt-6" />
 
-                    <SwiperProductSales />
-                    <Spacer size="pt-6" />
+                        <SwiperProductSales />
+                        <Spacer size="pt-6" />
 
-                    <ProductTabs />
-                    <Spacer size="pt-5" />
+                        <ProductTabs />
+                        <Spacer size="pt-5" />
+                    </Col>
+                    <Col size="col-12">
 
-                    <h3>Alternativní produkty</h3>
-                    <SwiperAltProducts />
-                    <Spacer size="pt-5" />
+                        <h3>Alternativní produkty</h3>
+                        <SwiperAltProducts />
+                        <Spacer size="pt-5" />
 
-                    <h3>Příslušenství</h3>
-                    <SwiperAltProducts />
-                    <Spacer size="pt-5" />
-                </Col>
+                        <h3>Příslušenství</h3>
+                        <SwiperAltProducts />
+                        <Spacer size="pt-5" />
+                    </Col>
+                </>
             }
         </>
     )
