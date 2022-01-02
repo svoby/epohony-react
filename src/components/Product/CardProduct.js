@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from '@heroicons/react/outline'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ShopContext from '../../context/ShopContext'
 
 function CardProduct(props) {
     return (
@@ -37,7 +38,11 @@ function CardProduct(props) {
                         <s className="text-muted mt-1">1.780 Kč</s>
                     </div>
                 </div>
-                <a className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" href="#!">Vložit do košíku <ArrowRightIcon className="ico sx-24" /></a>
+                <ShopContext.Consumer>
+                    {({ addToCart }) => (
+                        <button className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" onClick={() => addToCart({ id: props.id, name: props.attributes.name, price: props.attributes.price })}>Vložit do košíku <ArrowRightIcon className="ico sx-24" /></button>
+                    )}
+                </ShopContext.Consumer>
             </div>
         </div>
     )

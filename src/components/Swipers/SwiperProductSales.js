@@ -14,7 +14,8 @@ function SwiperProductSales() {
                 <div className="col-md-4 col-lg-3">
                     <div className="d-flex h-100 p-3 justify-content-between flex-column">
                         <div>
-                            <h2 className="h4 mb-0 text-red text-uppercase line-h-115">Zvýhodněné produkty</h2>
+                            <h2 className="d-none d-xl-block h4 mb-0 text-red text-uppercase line-h-115">Zvýhodněné produkty</h2>
+                            <h2 className="d-xl-none h5 mb-0 text-red text-uppercase line-h-115">Zvýhodněné produkty</h2>
                             <p className="small font-weight-bold text-uppercase">K TOMUTO ZBOŽÍ</p>
                         </div>
                         <div className="d-none d-md-inline-block sx-104 text-uppercase text-white text-micro position-relative">

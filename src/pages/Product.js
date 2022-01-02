@@ -8,6 +8,7 @@ import ProductTabs from '../components/Product/ProductTabs'
 import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
 import SwiperProductSales from '../components/Swipers/SwiperProductSales'
 import { GRAPH_QL_API_ENTRYPOINT } from '../config'
+import ShopContext from '../context/ShopContext'
 import { Col, Row, Spacer } from '../layout/Grid'
 
 function Product() {
@@ -92,9 +93,13 @@ function Product() {
                                             </div>
                                             <div className="h3 mb-0">{productData.attributes.price}&nbsp;Kč</div>
                                             <div className="text-micro font-weight-bold mb-4">1&nbsp;470 Kč s DPH</div>
-                                            <button className="btn btn-secondary btn-lg w-100">
-                                                <ShoppingCartIcon className="ico sx-24 mr-2 align-text-bottom" /> VLOŽIT DO KOŠÍKU
-                                            </button>
+                                            <ShopContext.Consumer>
+                                                {({ addToCart }) => (
+                                                    <button className="btn btn-secondary btn-lg w-100" onClick={() => addToCart({ id: productData.id, name: productData.attributes.name, price: productData.attributes.price })}>
+                                                        <ShoppingCartIcon className="ico sx-24 mr-2 align-text-bottom" /> VLOŽIT DO KOŠÍKU
+                                                    </button>
+                                                )}
+                                            </ShopContext.Consumer>
                                         </div>
                                     </div>
                                 </Col>
