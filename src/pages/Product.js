@@ -112,7 +112,7 @@ function Product() {
                     <SwiperAltProducts />
                     <Spacer size="pt-5" />
 
-                    <h3>Alternativní produkty</h3>
+                    <h3>Příslušenství</h3>
                     <SwiperAltProducts />
                     <Spacer size="pt-5" />
                 </Col>
