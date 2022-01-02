@@ -31,10 +31,10 @@ function CardProduct(props) {
                 <div className="letter-spacing-sm">
                     <div className="d-flex justify-content-between">
                         <div>
-                            <span className="h5 mb-0">8&nbsp;990&nbsp;Kč </span>s&nbsp;DPH
+                            <span className="h5 mb-0">{props.attributes.price}&nbsp;Kč </span>s&nbsp;DPH
                             <div className="d-block text-micro">2&nbsp;000 bez&nbsp;DPH</div>
                         </div>
-                        <s className="text-muted mt-1">${props.id}1.780 Kč</s>
+                        <s className="text-muted mt-1">1.780 Kč</s>
                     </div>
                 </div>
                 <a className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" href="#!">Vložit do košíku <ArrowRightIcon className="ico sx-24" /></a>

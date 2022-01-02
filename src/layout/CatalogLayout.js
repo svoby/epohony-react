@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react'
 import SidemenuTitle from '../components/SideMenuTitle'
 import { Spacer, Container, Row, Col } from './Grid'
 import { request, gql } from 'graphql-request'
-import { useParams } from 'react-router-dom'
 import { SideMenuNav } from '../components/SideMenuNav'
-
-const GRAPH_QL_API_ENTRYPOINT = process.env.NODE_ENV === 'development' ? 'http://localhost:1337/graphql' : 'https://epohony-strapi.herokuapp.com/graphql'
+import { GRAPH_QL_API_ENTRYPOINT } from '../config'
 
 function CatalogLayout(props) {
 
     const [dataMainCategories, setDataMainCategories] = useState()
-
-    const { id } = useParams();
 
     const queryCategory = gql`
         query {

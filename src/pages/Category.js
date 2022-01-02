@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import CategoryInfo from '../components/CategoryInfo'
 import CategoryList from '../components/CategoryList'
 import CardProduct from '../components/Product/CardProduct'
-import { Container, Row, Col, Spacer } from "../layout/Grid"
+import { Row, Col, Spacer } from "../layout/Grid"
 import { request, gql } from 'graphql-request'
 import SwiperProductsInCategory from '../components/Swipers/SwiperProductsInCategory'
 import { GRAPH_QL_API_ENTRYPOINT } from '../config'
@@ -28,6 +28,7 @@ function Category() {
                                 id
                                 attributes {
                                     name
+                                    price
                                 }
                             }
                         }
