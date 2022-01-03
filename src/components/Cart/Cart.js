@@ -12,7 +12,7 @@ function Cart() {
     const navigate = useNavigate()
     const { id } = useParams()
     const context = useContext(ShopContext)
-    const lastProducAdded = context.cart.find(product => product.id == id)
+    const lastProducAdded = context.cart.find(product => product.id === id)
 
     return (
         <Container>
