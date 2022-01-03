@@ -1,6 +1,7 @@
 import { MinusIcon, PlusIcon, TrashIcon } from '@heroicons/react/outline'
 import React, { useContext } from 'react'
 import ShopContext from '../../context/ShopContext'
+import { getPriceWithoutVAT } from '../../globals'
 import Placeholder from '../../layout/Placeholder'
 
 function CartTableRow(props) {
@@ -23,7 +24,7 @@ function CartTableRow(props) {
                 </button>
             </div>
             <div className="cart-table__price">
-                <div className="text-micro text-muted d-md-none">bez DPH</div>{Math.floor(props.product.price / 1.21)} Kč
+                <div className="text-micro text-muted d-md-none">bez DPH</div>{getPriceWithoutVAT(props.product.price)} Kč
             </div>
             <div className="cart-table__price cart-table__price--vat">
                 <div className="text-micro text-muted d-md-none">s DPH</div>{props.product.price} Kč

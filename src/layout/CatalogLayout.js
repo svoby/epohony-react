@@ -3,7 +3,7 @@ import SidemenuTitle from '../components/SideMenuTitle'
 import { Spacer, Container, Row, Col } from './Grid'
 import { request, gql } from 'graphql-request'
 import { SideMenuNav } from '../components/SideMenuNav'
-import { GRAPH_QL_API_ENTRYPOINT } from '../config'
+import { GRAPH_QL_API_ENTRYPOINT } from '../globals'
 
 function CatalogLayout(props) {
 

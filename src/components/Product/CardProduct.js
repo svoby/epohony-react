@@ -2,6 +2,7 @@ import { ArrowRightIcon } from '@heroicons/react/outline'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
+import { getPriceWithoutVAT } from '../../globals'
 
 function CardProduct(props) {
     return (
@@ -33,7 +34,7 @@ function CardProduct(props) {
                     <div className="d-flex justify-content-between">
                         <div>
                             <span className="h5 mb-0">{props.attributes.price}&nbsp;Kč </span>s&nbsp;DPH
-                            <div className="d-block text-micro">2&nbsp;000 bez&nbsp;DPH</div>
+                            <div className="d-block text-micro">{getPriceWithoutVAT(props.attributes.price)} bez&nbsp;DPH</div>
                         </div>
                         <s className="text-muted mt-1">1.780 Kč</s>
                     </div>

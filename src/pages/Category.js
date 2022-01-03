@@ -6,7 +6,7 @@ import CardProduct from '../components/Product/CardProduct'
 import { Row, Col, Spacer } from "../layout/Grid"
 import { request, gql } from 'graphql-request'
 import SwiperProductsInCategory from '../components/Swipers/SwiperProductsInCategory'
-import { GRAPH_QL_API_ENTRYPOINT } from '../config'
+import { GRAPH_QL_API_ENTRYPOINT } from '../globals'
 
 function Category() {
     const siteDataUrl = "/data/site.json"
