@@ -27,7 +27,7 @@ function CatalogLayout(props) {
             .then(data => {
                 setDataMainCategories(data.categories.data)
             })
-    }, [])
+    }, [queryCategory])
 
     return (
         <>

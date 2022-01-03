@@ -18,9 +18,9 @@ export default function Header(props) {
                 <span className="btn-primary btn-circle bg-gradient-secondary border-0 sx-40 mr-2"><UserIcon className="ico sx-24" /></span>
                 <span className="d-none d-md-block"><span className="fotn-weight-bold d-block">Přihlásit se</span>Můj účet</span>
               </Link>
-              <Link to="/cart" className="d-inline-flex align-items-center text-white text-micro ml-1 ml-md-4 hover-secondary" href="./cart.html">
+              <Link to="/cart/list" className="d-inline-flex align-items-center text-white text-micro ml-1 ml-md-4 hover-secondary" href="./cart.html">
                 <span className="btn-primary btn-circle bg-gradient-secondary border-0 sx-40 mr-2"><ShoppingCartIcon className="ico sx-24" /></span>
-                <span className="d-none d-md-block"><span className="font-weight-bold d-block">{cart.reduce((prev, current) => { return prev + current.price }, 0)} Kč</span>Košík ({cart.reduce((prev, current) => { return prev + current.quantity }, 0)})</span>
+                <span className="d-none d-md-block"><span className="font-weight-bold d-block">{cart.reduce((prev, current) => { return prev + current.price * current.quantity }, 0)} Kč</span>Košík ({cart.reduce((prev, current) => { return prev + current.quantity }, 0)})</span>
               </Link>
               <button className="d-md-none btn-primary btn-circle bg-gradient-secondary border-0 sx-40 js-offcanvas" data-target-id="#offcanvasEnd"><MenuIcon className="ico sx-24"></MenuIcon></button>
             </div>

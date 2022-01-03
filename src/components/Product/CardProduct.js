@@ -40,7 +40,7 @@ function CardProduct(props) {
                 </div>
                 <ShopContext.Consumer>
                     {({ addToCart }) => (
-                        <button className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" onClick={() => addToCart({ id: props.id, name: props.attributes.name, price: props.attributes.price })}>Vložit do košíku <ArrowRightIcon className="ico sx-24" /></button>
+                        <button className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" onClick={() => addToCart({ id: props.id, name: props.attributes.name, price: props.attributes.price }, true)}>Vložit do košíku <ArrowRightIcon className="ico sx-24" /></button>
                     )}
                 </ShopContext.Consumer>
             </div>

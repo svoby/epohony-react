@@ -1,5 +1,15 @@
 import React from 'react'
 
+/**
+ * Image placeholder
+ *
+ * @param w image width
+ * @param h image height
+ * @param color color
+ * @param color color
+ * @param pictureClass <picture className
+ * @param imgClass <img className
+ */
 function Placeholder(props) {
     return (
         <picture className={props.pictureClass}>

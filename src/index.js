@@ -6,14 +6,16 @@ import Category from './pages/Category'
 import Product from "./pages/Product";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Cart from "./components/Cart/Cart";
+import CartList from "./components/Cart/CartList";
 import CatalogLayout from "./layout/CatalogLayout";
 import Eshop from "./context/Eshop";
 
 class App extends React.Component {
   render() {
     return (
-      <Eshop>
-        <Router>
+      <Router>
+        <Eshop>
           <Header />
           <Routes>
             <Route path="/" element={<Sitemap />}></Route>
@@ -29,10 +31,15 @@ class App extends React.Component {
               </CatalogLayout>
             }>
             </Route>
+            <Route path="/cart/:id" element={<Cart />}></Route>
+            <Route path="/cart/list" element={<CartList />}></Route>
+            <Route path="/cart/shipping" element={<CartList />}></Route>
+            <Route path="/cart/delivery" element={<CartList />}></Route>
+            <Route path="/cart/success" element={<CartList />}></Route>
           </Routes>
           <Footer />
-        </Router>
-      </Eshop>
+        </Eshop >
+      </Router>
     )
   }
 }
