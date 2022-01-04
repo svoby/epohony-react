@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sitemap from "./pages/Sitemap";
-import Category from './pages/Category'
-import Product from "./pages/Product";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Cart from "./components/Cart/Cart";
-import CartList from "./components/Cart/CartList";
+import Sitemap from "./pages/Sitemap";
+import Category from './pages/Category'
 import CatalogLayout from "./layout/CatalogLayout";
-import CartShipping from "./components/Cart/CartShipping";
-import CartDelivery from "./components/Cart/CartDelivery";
-import CartSuccess from "./components/Cart/CartSuccess";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
+import CartList from "./pages/CartList";
+import CartShipping from "./pages/CartShipping";
+import CartDelivery from "./pages/CartDelivery";
+import CartSuccess from "./pages/CartSuccess";
 import Eshop from "./context/Eshop";
 import Main from "./layout/Main";
 

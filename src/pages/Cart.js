@@ -1,14 +1,14 @@
 import { CheckIcon } from '@heroicons/react/outline'
 import React, { useContext, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import ShopContext from '../../context/ShopContext'
-import { scrollToTop } from '../../globals'
-import { Container, Row, Col, Spacer } from '../../layout/Grid'
-import Placeholder from '../../layout/Placeholder'
-import SwiperAltProducts from '../Swipers/SwiperAltProducts'
-import SwiperProductSales from '../Swipers/SwiperProductSales'
-import CartBottomNavigation from './CartBottonNavigation'
-import CartIsEmptyWarning from "./CartIsEmptyWarning"
+import ShopContext from '../context/ShopContext'
+import { scrollToTop } from '../globals'
+import { Container, Row, Col, Spacer } from '../layout/Grid'
+import Placeholder from '../layout/Placeholder'
+import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
+import SwiperProductSales from '../components/Swipers/SwiperProductSales'
+import CartBottomNavigation from '../components/Cart/CartBottonNavigation'
+import CartIsEmptyWarning from "../components/Cart/CartIsEmptyWarning"
 
 const Cart = () => {
 

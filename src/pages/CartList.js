@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import ShopContext from '../../context/ShopContext'
-import { Container, Spacer } from '../../layout/Grid'
+import ShopContext from '../context/ShopContext'
+import { Container, Spacer } from '../layout/Grid'
 import { ChevronRightIcon, IdentificationIcon, ShoppingCartIcon, TruckIcon } from '@heroicons/react/outline'
-import SwiperAltProducts from '../Swipers/SwiperAltProducts'
-import CartTableRow from './CartTableRow'
-import CartIsEmptyWarning from './CartIsEmptyWarning'
-import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../../globals'
-import CartBottomNavigation from './CartBottonNavigation'
+import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
+import CartTableRow from '../components/Cart/CartTableRow'
+import CartIsEmptyWarning from '../components/Cart/CartIsEmptyWarning'
+import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../globals'
+import CartBottomNavigation from '../components/Cart/CartBottonNavigation'
 
 const CartList = () => {
 

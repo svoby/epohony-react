@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react'
-import ShopContext from '../../context/ShopContext'
-import { Container, Spacer } from '../../layout/Grid'
+import ShopContext from '../context/ShopContext'
+import { Container, Spacer } from '../layout/Grid'
 import { ArrowNarrowDownIcon, ArrowNarrowRightIcon, CheckIcon, GiftIcon, HomeIcon, TruckIcon } from '@heroicons/react/outline'
-import SwiperAltProducts from '../Swipers/SwiperAltProducts'
-import { scrollToTop } from '../../globals'
+import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
+import { scrollToTop } from '../globals'
 
 export default function CartSuccess() {
 

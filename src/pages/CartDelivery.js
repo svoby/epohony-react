@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import ShopContext from '../../context/ShopContext'
-import { Container, Row, Col, Spacer } from '../../layout/Grid'
+import ShopContext from '../context/ShopContext'
+import { Container, Row, Col, Spacer } from '../layout/Grid'
 import { CheckIcon, ChevronRightIcon, IdentificationIcon } from '@heroicons/react/outline'
-import SwiperAltProducts from '../Swipers/SwiperAltProducts'
-import CartIsEmptyWarning from "./CartIsEmptyWarning"
-import CartBottomNavigation from './CartBottonNavigation'
-import Placeholder from '../../layout/Placeholder'
-import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../../globals'
+import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
+import CartIsEmptyWarning from "../components/Cart/CartIsEmptyWarning"
+import CartBottomNavigation from '../components/Cart/CartBottonNavigation'
+import Placeholder from '../layout/Placeholder'
+import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../globals'
 
 const validateForm = (e) => {
 
