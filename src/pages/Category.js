@@ -65,8 +65,6 @@ function Category() {
         <>
             <Col size="col-lg-9">
                 <CategoryInfo {...dataCategoryInfo} />
-                {/* <Spacer size="pt-4 pt-md-5" /> */}
-                {/* <CategoryList items={dataCategorySubcategories} /> */}
                 <Spacer size="pt-4 pt-md-5" />
                 <Row size="gutters-md">
                     {dataProductsInCatalog && dataProductsInCatalog.map((product, key) => (

@@ -16,38 +16,38 @@ import Eshop from "./context/Eshop";
 import Main from "./layout/Main";
 
 class App extends React.Component {
-	render() {
-		return (
-			<Router>
-				<Eshop>
-					<Header />
-					<Main>
-						<Routes>
-							<Route path="/" element={<Sitemap />}></Route>
-							<Route path="/category/:id" element={
-								<CatalogLayout>
-									<Category />
-								</CatalogLayout>
-							}>
-							</Route>
-							<Route path="/product/:id" element={
-								<CatalogLayout>
-									<Product />
-								</CatalogLayout>
-							}>
-							</Route>
-							<Route path="/cart/:id" element={<Cart />}></Route>
-							<Route path="/cart/list" element={<CartList />}></Route>
-							<Route path="/cart/shipping" element={<CartShipping />}></Route>
-							<Route path="/cart/delivery" element={<CartDelivery />}></Route>
-							<Route path="/cart/success" element={<CartSuccess />}></Route>
-						</Routes>
-						<Footer />
-					</Main>
-				</Eshop>
-			</Router>
-		)
-	}
+    render() {
+        return (
+            <Router>
+                <Eshop>
+                    <Header />
+                    <Main>
+                        <Routes>
+                            <Route path="/" element={<Sitemap />}></Route>
+                            <Route path="/category/:id" element={
+                                <CatalogLayout>
+                                    <Category />
+                                </CatalogLayout>
+                            }>
+                            </Route>
+                            <Route path="/product/:id" element={
+                                <CatalogLayout>
+                                    <Product />
+                                </CatalogLayout>
+                            }>
+                            </Route>
+                            <Route path="/cart/:id" element={<Cart />}></Route>
+                            <Route path="/cart/list" element={<CartList />}></Route>
+                            <Route path="/cart/shipping" element={<CartShipping />}></Route>
+                            <Route path="/cart/delivery" element={<CartDelivery />}></Route>
+                            <Route path="/cart/success" element={<CartSuccess />}></Route>
+                        </Routes>
+                        <Footer />
+                    </Main>
+                </Eshop>
+            </Router>
+        )
+    }
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
