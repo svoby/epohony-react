@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
 import { Container, Row, Col, Spacer } from '../../layout/Grid'
 import { CheckIcon, ChevronRightIcon, IdentificationIcon, TruckIcon } from '@heroicons/react/outline'
 import SwiperAltProducts from '../Swipers/SwiperAltProducts'
 import CartIsEmptyWarning from "./CartIsEmptyWarning"
-import CartBottonNavigation from './CartBottonNavigation'
+import CartBottomNavigation from './CartBottonNavigation'
 import Placeholder from '../../layout/Placeholder'
 import CartPaymentRow from './CartPaymentRow'
-import { cartPriceReducer, getPriceWithoutVAT } from '../../globals'
+import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../../globals'
 import { payments, shippings } from './ShippingConfig'
 
 const CartShipping = () => {
@@ -18,6 +18,8 @@ const CartShipping = () => {
     let totalPrice = cart.reduce(cartPriceReducer, 0)
 
     totalPrice += (payment?.price ? payment.price : 0) + (shipping?.price ? shipping.price : 0)
+
+    useEffect(() => scrollToTop(), [])
 
     return (
         <Container>
@@ -33,7 +35,7 @@ const CartShipping = () => {
                     <Spacer size="pt-5" />
 
                     <Row>
-                        <Col className="col-lg-8 mb-4 mb-lg-0">
+                        <Col size="col-lg-8 mb-4 mb-lg-0">
                             <h2 className="h5">Výběr dopravy</h2>
                             {shippings.map((shipping, key) => (
                                 <CartPaymentRow payment={shipping} key={key} groupName="shipping" onClickHandler={setShipping} />
@@ -47,7 +49,7 @@ const CartShipping = () => {
                             ))}
                         </Col>
 
-                        <Col className="col-lg-4">
+                        <Col size="col-lg-4">
                             <div className="pl-lg-4">
                                 <h2 className="h5">Shrnutí objednávky</h2>
                                 <div className="border rounded py-4 px-3">
@@ -98,7 +100,7 @@ const CartShipping = () => {
 
             <Spacer size="pt-5" />
 
-            <CartBottonNavigation
+            <CartBottomNavigation
                 backLinkHandler={() => navigate(-1)}
                 nextStepLabel="Pokračovat"
                 nextStepLinkTo="/cart/delivery"

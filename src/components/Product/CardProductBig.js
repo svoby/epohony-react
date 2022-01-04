@@ -1,8 +1,12 @@
 import { ArrowRightIcon } from '@heroicons/react/outline'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import ShopContext from '../../context/ShopContext'
 
 function CardProductBig(props) {
+
+    const { addToCart } = useContext(ShopContext)
+
     return (
         <div className="card h-100 bg-100">
             <Link to="/product/1">
@@ -29,7 +33,7 @@ function CardProductBig(props) {
                 <div className="letter-spacing-sm"><span className="h5 mb-4">8&nbsp;990&nbsp;Kč </span>s&nbsp;DPH
                     <s className="text-muted ml-2">1.780 Kč</s>
                 </div>
-                <a className="btn btn-outline-primary d-inline-flex justify-content-between w-100 mt-3" href="./cart.html">Vložit do košíku <ArrowRightIcon className="sx-24" /></a>
+                <button className="btn btn-outline-primary d-inline-flex justify-content-between w-100 mt-3" onClick={() => addToCart({ id: "99", name: "Mockup product", price: 1000 }, true)}>Vložit do košíku <ArrowRightIcon className="sx-24" /></button>
             </div>
         </div>
     )

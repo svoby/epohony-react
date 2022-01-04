@@ -4,7 +4,7 @@ import { Spacer } from "../layout/Grid";
 function CategoryInfo(props) {
     return (
         <section>
-            <Spacer size="pt-4 pt-md-5" />
+            <Spacer size="pt-4" />
             <h1 className="text-uppercase">{props.title}</h1>
             <h5 className="text-uppercase">{props.subtitle}</h5>
             <div className="small line-h-150">

@@ -6,7 +6,7 @@ import CardProduct from '../components/Product/CardProduct'
 import { Row, Col, Spacer } from "../layout/Grid"
 import { request, gql } from 'graphql-request'
 import SwiperProductsInCategory from '../components/Swipers/SwiperProductsInCategory'
-import { GRAPH_QL_API_ENTRYPOINT } from '../globals'
+import { GRAPH_QL_API_ENTRYPOINT, scrollToTop } from '../globals'
 
 function Category() {
     const siteDataUrl = "/data/site.json"
@@ -35,20 +35,26 @@ function Category() {
                     }
                 }
             }
+            categories {
+                data {
+                    id
+                    attributes {
+                        title
+                    }
+                }
+            }
         }
     `
     useEffect(() => {
-        fetch(siteDataUrl)
-            .then(response => response.json())
-            .then(data => {
-                setDataCategorySubcategories(data.$Data.productCategorySubcategories)
-            })
 
+        // Fetch CMS content data
         try {
             request(GRAPH_QL_API_ENTRYPOINT, queryCategory)
                 .then((data) => {
                     setDataCategoryInfo(data.category.data.attributes)
                     setDataProductsInCategory(data.category.data.attributes.products.data)
+                    setDataCategorySubcategories(data.categories.data)
+                    scrollToTop()
                 });
         } catch (error) {
             console.log(error)
@@ -60,25 +66,29 @@ function Category() {
         <>
             <Col size="col-lg-9">
                 <CategoryInfo {...dataCategoryInfo} />
-                <Spacer size="pt-4 pt-md-5" />
+                {/* <Spacer size="pt-4 pt-md-5" /> */}
                 {/* <CategoryList items={dataCategorySubcategories} /> */}
                 <Spacer size="pt-4 pt-md-5" />
                 <Row size="gutters-md">
                     {dataProductsInCatalog && dataProductsInCatalog.map((product, key) => (
                         <Col size="col-md-6 col-lg-4 mb-2" key={key}>
                             <CardProduct {...product} />
-                        </Col>))}
+                        </Col>
+                    ))}
                 </Row>
             </Col>
             <Col size="col-12">
                 <Spacer size="pt-4 pt-md-5" />
                 <div className="border-top"></div>
                 <Spacer size="pt-4 pt-md-5" />
+
                 <h2 className="h3 mb-0 text-uppercase">Subcategories</h2>
                 <Spacer size="pt-4 pt-md-5" />
                 <CategoryList items={dataCategorySubcategories} />
+
                 <Spacer size="pt-4 pt-md-5" />
                 <SwiperProductsInCategory />
+
                 <Spacer size="pt-4 pt-md-5" />
                 <p>{dataCategoryInfo && dataCategoryInfo.text}</p>
                 <Spacer size="pt-5" />

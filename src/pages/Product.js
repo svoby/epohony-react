@@ -42,8 +42,9 @@ function Product() {
             {productData &&
                 <>
                     <Col size="col-lg-9">
+                        <Spacer size="pt-4" />
                         <h1 className='line-h-100'>{productData && productData.attributes.name}</h1>
-                        <h2 className="h3 mb-0">{productData && productData.attributes.name}</h2>
+                        <h2 className="h4 mb-0">{productData && productData.attributes.subtitle}</h2>
 
                         <Spacer size="pt-5" />
 
@@ -69,11 +70,11 @@ function Product() {
                                             <tbody>
                                                 <tr>
                                                     <th className="py-2">Kód produktu</th>
-                                                    <td>KIT R20/502/1W</td>
+                                                    <td>A2484</td>
                                                 </tr>
                                                 <tr>
                                                     <th className="py-2">Hmotnost</th>
-                                                    <td>11 340 g</td>
+                                                    <td>135 g</td>
                                                 </tr>
                                                 <tr>
                                                     <th className="py-2">Dostupnost</th>
@@ -81,7 +82,7 @@ function Product() {
                                                 </tr>
                                                 <tr>
                                                     <th className="py-2">Výrobce</th>
-                                                    <td>Roger Industries</td>
+                                                    <td>Apple Inc.</td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -31,15 +31,15 @@ function CatalogLayout(props) {
 
     return (
         <>
-            <Spacer size="py-4 py-md-5" />
+            <Spacer size="py-4" />
             <Container>
                 <Row>
-                    <Col size="col-lg-3 mt-6 mt-lg-0 order-1 order-lg-0">
-                        <SidemenuTitle title="Kategorie" />
-                        <SideMenuNav items={dataMainCategories} />
-                        <Spacer size="pt-4 pt-md-5" />
-                        <SidemenuTitle title="Výrobci pohonů" />
-                        <SideMenuNav items={dataMainCategories} />
+                    <Col size="col-lg-3 order-1 order-lg-0">
+                        <div className="pr-md-4">
+                            <SidemenuTitle title="Kategorie" />
+                            <SideMenuNav items={dataMainCategories} />
+                            <Spacer size="pt-4 pt-md-5" />
+                        </div>
                     </Col>
                     {props.children}
                 </Row>

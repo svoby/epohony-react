@@ -1,23 +1,27 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
 import { Container, Row, Col, Spacer } from '../../layout/Grid'
-import { CheckIcon, ChevronRightIcon, IdentificationIcon, TruckIcon } from '@heroicons/react/outline'
+import { CheckIcon, ChevronRightIcon, IdentificationIcon } from '@heroicons/react/outline'
 import SwiperAltProducts from '../Swipers/SwiperAltProducts'
 import CartIsEmptyWarning from "./CartIsEmptyWarning"
-import CartBottonNavigation from './CartBottonNavigation'
+import CartBottomNavigation from './CartBottonNavigation'
 import Placeholder from '../../layout/Placeholder'
-import CartPaymentRow from './CartPaymentRow'
-import { cartPriceReducer, getPriceWithoutVAT } from '../../globals'
-import { payments, shippings } from './ShippingConfig'
+import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../../globals'
+
+const validateForm = (e) => {
+
+}
 
 const CartDelivery = () => {
 
     const navigate = useNavigate()
-    const { cart, payment, shipping, setPayment, setShipping } = useContext(ShopContext)
+    const { cart, payment, shipping } = useContext(ShopContext)
     let totalPrice = cart.reduce(cartPriceReducer, 0)
 
     totalPrice += (payment?.price ? payment.price : 0) + (shipping?.price ? shipping.price : 0)
+
+    useEffect(() => scrollToTop(), [])
 
     return (
         <Container>
@@ -33,21 +37,51 @@ const CartDelivery = () => {
                     <Spacer size="pt-5" />
 
                     <Row>
-                        <Col className="col-lg-8 mb-4 mb-lg-0">
+                        <Col size="col-lg-8 mb-4 mb-lg-0">
                             <h2 className="h5">Fakturační a dodací údaje</h2>
-                            {shippings.map((shipping, key) => (
-                                <CartPaymentRow payment={shipping} key={key} groupName="shipping" onClickHandler={setShipping} />
-                            ))}
-
-                            <Spacer size="pt-5" />
-
-                            <h2 className="h5">Výběr platby</h2>
-                            {payments.map((payment, key) => (
-                                <CartPaymentRow payment={payment} key={key} groupName="payment" onClickHandler={setPayment} />
-                            ))}
+                            <div className="bg-100 p-4">
+                                <div className="row">
+                                    <div className="col-lg-8">
+                                        <div className="form-group">
+                                            <label className="font-weight-semibold" htmlFor="">Jméno</label>
+                                            <input className="form-control" id="" type="text" defaultValue="Jan" />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="font-weight-semibold" htmlFor="">Příjmení</label>
+                                            <input className="form-control" id="" type="text" defaultValue="Novák" />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="font-weight-semibold" htmlFor="">E-mailová adresa</label>
+                                            <input className="form-control is-valid" id="" type="email" defaultValue="email@email.com" />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="font-weight-semibold" htmlFor="">Telefon</label>
+                                            <input className="form-control is-valid" id="" type="text" defaultValue="+420 123 456 789" />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="font-weight-semibold" htmlFor="">Ulice a číslo</label>
+                                            <input className="form-control" id="" type="text" defaultValue="Moravské náměstí 2" />
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-8">
+                                                <div className="form-group">
+                                                    <label className="font-weight-semibold" htmlFor="">Město</label>
+                                                    <input className="form-control" id="" type="text" defaultValue="Brno" />
+                                                </div>
+                                            </div>
+                                            <div className="col-4">
+                                                <div className="form-group">
+                                                    <label className="font-weight-semibold" htmlFor="">PSČ</label>
+                                                    <input className="form-control" id="" type="text" defaultValue="602 00" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </Col>
 
-                        <Col className="col-lg-4">
+                        <Col size="col-lg-4">
                             <div className="pl-lg-4">
                                 <h2 className="h5">Shrnutí objednávky</h2>
                                 <div className="border rounded py-4 px-3">
@@ -91,16 +125,17 @@ const CartDelivery = () => {
                                 </div>
                             </div>
                         </Col>
-                    </Row>
+                    </Row >
                 </>
             )}
 
             <Spacer size="pt-5" />
 
-            <CartBottonNavigation
+            <CartBottomNavigation
                 backLinkHandler={() => navigate(-1)}
                 nextStepLabel="Dokončit objednávku"
                 nextStepLinkTo="/cart/success"
+                nextStepHandler={(e) => validateForm(e)}
                 disabled={!cart.length} />
             <Spacer size="pt-6" />
 
@@ -131,18 +166,18 @@ const CartSteps = () => (
                 </Link>
             </div>
             <div className="col-4">
-                <div className="d-flex h-100 align-items-center p-3 text-none border-capsule bg-gradient-primary text-white">
-                    <div className="icon-box-inline sx-40 rounded-circle border border-current mr-3">
-                        <TruckIcon className='sx-24' />
+                <Link to="/cart/shipping" className="d-flex h-100 align-items-center p-3 text-none border-capsule hover-bg-primary-alpha-20">
+                    <div className="icon-box-inline sx-40 rounded-circle border bg-primary text-white border-current mr-3">
+                        <CheckIcon className='sx-24' />
                     </div>
                     <div className="line-h-100">2. Shipping / Payment</div>
                     <div className="d-inline-block sx-32 ml-auto">
                         <ChevronRightIcon className='sx-32' />
                     </div>
-                </div>
+                </Link>
             </div>
             <div className="col-4">
-                <div className="d-flex h-100 align-items-center p-3 text-none border-capsule text-500">
+                <div className="d-flex h-100 align-items-center p-3 text-none border-capsule bg-gradient-primary text-white">
                     <div className="icon-box-inline sx-40 rounded-circle border border-current mr-3">
                         <IdentificationIcon className='sx-24' />
                     </div>

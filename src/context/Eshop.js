@@ -4,7 +4,7 @@ import ShopContext from './ShopContext'
 
 const Eshop = (props) => {
 
-    const [cart, setCart] = useState([{ id: "1", name: "Product name", price: 100, quantity: 1 }])
+    const [cart, setCart] = useState([])
     const [payment, setPayment] = useState(null)
     const [shipping, setShipping] = useState(null)
     const navigate = useNavigate()
@@ -26,7 +26,6 @@ const Eshop = (props) => {
         // Force redirect?
         if (redirectToCart) {
             navigate(`/cart/${product.id}`)
-            window.scrollTo(0, 0)
         }
     }
 
@@ -58,7 +57,8 @@ const Eshop = (props) => {
             setShipping: setShipping,
             addToCart: addToCart,
             removeFromCart: removeFromCart,
-            trashProduct: trashProduct
+            trashProduct: trashProduct,
+            purgeCart: purgeCart
         }}>
             {props.children}
         </ShopContext.Provider>

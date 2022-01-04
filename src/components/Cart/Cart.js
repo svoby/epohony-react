@@ -1,12 +1,13 @@
 import { CheckIcon } from '@heroicons/react/outline'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
+import { scrollToTop } from '../../globals'
 import { Container, Row, Col, Spacer } from '../../layout/Grid'
 import Placeholder from '../../layout/Placeholder'
 import SwiperAltProducts from '../Swipers/SwiperAltProducts'
 import SwiperProductSales from '../Swipers/SwiperProductSales'
-import CartBottonNavigation from './CartBottonNavigation'
+import CartBottomNavigation from './CartBottonNavigation'
 import CartIsEmptyWarning from "./CartIsEmptyWarning"
 
 const Cart = () => {
@@ -15,6 +16,8 @@ const Cart = () => {
     const { cart } = useContext(ShopContext)
     const lastProducAdded = cart.find(product => product.id === id)
     const navigate = useNavigate()
+
+    useEffect(() => scrollToTop(), [])
 
     return (
         <Container>
@@ -90,7 +93,7 @@ const Cart = () => {
 
             <Spacer size="pt-5" />
 
-            <CartBottonNavigation
+            <CartBottomNavigation
                 backLinkHandler={() => navigate(-1)}
                 nextStepLabel="Do košíku"
                 nextStepLinkTo="/cart/list"

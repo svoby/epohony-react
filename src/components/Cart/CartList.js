@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
 import { Container, Spacer } from '../../layout/Grid'
@@ -6,14 +6,16 @@ import { ChevronRightIcon, IdentificationIcon, ShoppingCartIcon, TruckIcon } fro
 import SwiperAltProducts from '../Swipers/SwiperAltProducts'
 import CartTableRow from './CartTableRow'
 import CartIsEmptyWarning from './CartIsEmptyWarning'
-import { cartPriceReducer, getPriceWithoutVAT } from '../../globals'
-import CartBottonNavigation from './CartBottonNavigation'
+import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../../globals'
+import CartBottomNavigation from './CartBottonNavigation'
 
 const CartList = () => {
 
     const navigate = useNavigate()
     const { cart } = useContext(ShopContext)
     const totalPrice = cart.reduce(cartPriceReducer, 0)
+
+    useEffect(() => scrollToTop(), [])
 
     return (
         <Container>
@@ -83,7 +85,7 @@ const CartList = () => {
 
             <Spacer size="pt-5" />
 
-            <CartBottonNavigation
+            <CartBottomNavigation
                 backLinkHandler={() => navigate(-1)}
                 nextStepLabel="Pokračovat"
                 nextStepLinkTo="/cart/shipping"

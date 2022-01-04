@@ -6,5 +6,6 @@ export default React.createContext({
     setShipping: () => { },
     addToCart: () => { },
     removeFromCart: () => { },
-    trashProduct: () => { }
+    trashProduct: () => { },
+    purgeCart: () => { }
 })

@@ -42,7 +42,7 @@ export default function Footer() {
                         <Col size="col-12 col-md-3 col-lg-6">
                             <div className="d-flex h-100 justify-content-between flex-column">
                                 <div className="small line-h-120 mb-4">
-                                    <img className="img-fluid mb-4" src="/assets/images/logo-site.svg" alt="ePohony" width="165" />
+                                    <img className="img-fluid mb-4" src="/assets/images/logo-site.svg" alt="ePohony" width="100" />
                                     <p>2022 &copy; Epohony.cz<br />Všechna práva vyhrazena</p>
                                 </div>
                                 <div className="mb-4 mb-md-0">
@@ -75,10 +75,10 @@ export default function Footer() {
                                 <input type="checkbox" id="foot-links-1" />
                                 <nav>
                                     <ul>
-                                        <li><Link to="/">Rozcestník šablon</Link></li>
-                                        <li><a href="/homepage">Homepage</a></li>
-                                        <li><a href="/category/1">Catalog</a></li>
+                                        <li><a href="/category/1">Category</a></li>
                                         <li><a href="/product/1">Product</a></li>
+                                        <li><Link to="/cart/1">Cart 1</Link></li>
+                                        <li><Link to="/cart/list">Cart 2</Link></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -89,11 +89,11 @@ export default function Footer() {
                                 <input type="checkbox" id="foot-links-2" />
                                 <nav>
                                     <ul>
-                                        <li><a href="./cart.html">Cart</a></li>
-                                        <li><a href="./cart-1.html">Cart 1</a></li>
-                                        <li><a href="./cart-2.html">Cart 2</a></li>
-                                        <li><a href="./cart-3.html">Cart 3</a></li>
-                                        <li><a href="./cart-4.html">Cart 4</a></li>
+
+                                        <li><Link to="/cart/shipping">Cart 3</Link></li>
+                                        <li><Link to="/cart/delivery">Cart 4</Link></li>
+                                        <li><Link to="/cart/success">Cart 5</Link></li>
+                                        <li><Link to="#!">Stat rosa</Link></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -108,7 +108,6 @@ export default function Footer() {
                                         <li><a href="#!">Gochujang chillwave</a></li>
                                         <li><a href="#!">Tumblr kitsch</a></li>
                                         <li><a href="#!">Humblebrag</a></li>
-                                        <li><a href="#!">Knausgaard</a></li>
                                     </ul>
                                 </nav>
                             </div>
