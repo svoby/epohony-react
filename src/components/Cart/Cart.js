@@ -90,7 +90,11 @@ const Cart = () => {
 
             <Spacer size="pt-5" />
 
-            <CartBottonNavigation backLinkHandler={() => navigate(-1)} nextStepLabel="Do košíku" cart={cart} />
+            <CartBottonNavigation
+                backLinkHandler={() => navigate(-1)}
+                nextStepLabel="Do košíku"
+                nextStepLinkTo="/cart/list"
+                disabled={!cart.length} />
 
             <Spacer size="pt-6" />
             <SwiperProductSales />

@@ -6,14 +6,14 @@ import { ChevronRightIcon, IdentificationIcon, ShoppingCartIcon, TruckIcon } fro
 import SwiperAltProducts from '../Swipers/SwiperAltProducts'
 import CartTableRow from './CartTableRow'
 import CartIsEmptyWarning from './CartIsEmptyWarning'
-import { getPriceWithoutVAT } from '../../globals'
+import { cartPriceReducer, getPriceWithoutVAT } from '../../globals'
 import CartBottonNavigation from './CartBottonNavigation'
 
 const CartList = () => {
 
     const navigate = useNavigate()
     const { cart } = useContext(ShopContext)
-    const totalPrice = cart.reduce((prev, current) => { return prev + current.price * current.quantity }, 0)
+    const totalPrice = cart.reduce(cartPriceReducer, 0)
 
     return (
         <Container>
@@ -83,7 +83,12 @@ const CartList = () => {
 
             <Spacer size="pt-5" />
 
-            <CartBottonNavigation backLinkHandler={() => navigate(-1)} nextStepLabel="Pokračovat" cart={cart} />
+            <CartBottonNavigation
+                backLinkHandler={() => navigate(-1)}
+                nextStepLabel="Pokračovat"
+                nextStepLinkTo="/cart/shipping"
+                disabled={!cart.length}
+            />
 
             <Spacer size="pt-6" />
 

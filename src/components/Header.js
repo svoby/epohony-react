@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { Container } from "../layout/Grid";
 import { UserIcon, ShoppingCartIcon, MenuIcon } from '@heroicons/react/outline';
 import ShopContext from "../context/ShopContext";
+import { cartPriceReducer } from "../globals";
 
 export default function Header(props) {
 
   const { cart } = useContext(ShopContext)
   const totalCount = cart.reduce((prev, current) => { return prev + current.quantity }, 0)
-  const totalPrice = cart.reduce((prev, current) => { return prev + current.price * current.quantity }, 0)
+  const totalPrice = cart.reduce(cartPriceReducer, 0)
 
   return (
     <header className="main bg-gradient-primary py-3 text-white">

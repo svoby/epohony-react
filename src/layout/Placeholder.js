@@ -6,7 +6,6 @@ import React from 'react'
  * @param w image width
  * @param h image height
  * @param color color
- * @param color color
  * @param pictureClass <picture className
  * @param imgClass <img className
  */

@@ -39,7 +39,7 @@ function CatalogLayout(props) {
                         <SideMenuNav items={dataMainCategories} />
                         <Spacer size="pt-4 pt-md-5" />
                         <SidemenuTitle title="Výrobci pohonů" />
-                        {/* <SideMenuNav items={dataManufacturers} /> */}
+                        <SideMenuNav items={dataMainCategories} />
                     </Col>
                     {props.children}
                 </Row>

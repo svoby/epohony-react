@@ -11,7 +11,7 @@ import CartPaymentRow from './CartPaymentRow'
 import { cartPriceReducer, getPriceWithoutVAT } from '../../globals'
 import { payments, shippings } from './ShippingConfig'
 
-const CartShipping = () => {
+const CartDelivery = () => {
 
     const navigate = useNavigate()
     const { cart, payment, shipping, setPayment, setShipping } = useContext(ShopContext)
@@ -34,7 +34,7 @@ const CartShipping = () => {
 
                     <Row>
                         <Col className="col-lg-8 mb-4 mb-lg-0">
-                            <h2 className="h5">Výběr dopravy</h2>
+                            <h2 className="h5">Fakturační a dodací údaje</h2>
                             {shippings.map((shipping, key) => (
                                 <CartPaymentRow payment={shipping} key={key} groupName="shipping" onClickHandler={setShipping} />
                             ))}
@@ -93,16 +93,15 @@ const CartShipping = () => {
                         </Col>
                     </Row>
                 </>
-            )
-            }
+            )}
 
             <Spacer size="pt-5" />
 
             <CartBottonNavigation
                 backLinkHandler={() => navigate(-1)}
-                nextStepLabel="Pokračovat"
-                nextStepLinkTo="/cart/delivery"
-                disabled={payment == null || shipping == null} />
+                nextStepLabel="Dokončit objednávku"
+                nextStepLinkTo="/cart/success"
+                disabled={!cart.length} />
             <Spacer size="pt-6" />
 
             <h3>Alternativní produkty</h3>
@@ -154,4 +153,4 @@ const CartSteps = () => (
     </div>
 )
 
-export default CartShipping
+export default CartDelivery

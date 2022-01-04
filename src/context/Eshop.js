@@ -5,6 +5,8 @@ import ShopContext from './ShopContext'
 const Eshop = (props) => {
 
     const [cart, setCart] = useState([{ id: "1", name: "Product name", price: 100, quantity: 1 }])
+    const [payment, setPayment] = useState(null)
+    const [shipping, setShipping] = useState(null)
     const navigate = useNavigate()
 
     const addToCart = (product, redirectToCart = false) => {
@@ -45,9 +47,15 @@ const Eshop = (props) => {
         setCart(cart.filter(item => item.id !== product.id))
     }
 
+    const purgeCart = () => setCart([])
+
     return (
         <ShopContext.Provider value={{
             cart: cart,
+            payment: payment,
+            shipping: shipping,
+            setPayment: setPayment,
+            setShipping: setShipping,
             addToCart: addToCart,
             removeFromCart: removeFromCart,
             trashProduct: trashProduct

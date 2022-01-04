@@ -10,6 +10,7 @@ import Cart from "./components/Cart/Cart";
 import CartList from "./components/Cart/CartList";
 import CatalogLayout from "./layout/CatalogLayout";
 import CartShipping from "./components/Cart/CartShipping";
+import CartDelivery from "./components/Cart/CartDelivery";
 import Eshop from "./context/Eshop";
 
 class App extends React.Component {
@@ -35,7 +36,7 @@ class App extends React.Component {
 						<Route path="/cart/:id" element={<Cart />}></Route>
 						<Route path="/cart/list" element={<CartList />}></Route>
 						<Route path="/cart/shipping" element={<CartShipping />}></Route>
-						<Route path="/cart/delivery" element={<CartList />}></Route>
+						<Route path="/cart/delivery" element={<CartDelivery />}></Route>
 						<Route path="/cart/success" element={<CartList />}></Route>
 					</Routes>
 					<Footer />
