@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import SidemenuTitle from '../components/SideMenuTitle'
-import { Spacer, Container, Row, Col } from './Grid'
 import { request, gql } from 'graphql-request'
-import { SideMenuNav } from '../components/SideMenuNav'
+import SidemenuTitle from '../components/SideMenu/SideMenuTitle'
+import SideMenuNav from '../components/SideMenu/SideMenuNav'
+import { Spacer, Container, Row, Col } from './Grid'
 import { GRAPH_QL_API_ENTRYPOINT } from '../globals'
 
 function CatalogLayout(props) {

@@ -9,7 +9,6 @@ import SwiperProductsInCategory from '../components/Swipers/SwiperProductsInCate
 import { GRAPH_QL_API_ENTRYPOINT, scrollToTop } from '../globals'
 
 function Category() {
-    const siteDataUrl = "/data/site.json"
     const [dataCategoryInfo, setDataCategoryInfo] = useState()
     const [dataCategorySubcategories, setDataCategorySubcategories] = useState()
     const [dataProductsInCatalog, setDataProductsInCategory] = useState()

@@ -40,7 +40,7 @@ function Index() {
                     <Col size="col-md-2 d-none d-md-block">
                         <div className="d-none d-md-block">
                             <div className="rounded bg-white shadow-primary">
-                                <img className="img-fluid" src="assets/images/qr-code.png" />
+                                <img className="img-fluid" src="assets/images/qr-code.png" alt="QR" />
                                 <div className="px-2 pb-2 pt-0">
                                     <div className="text-muted text-micro">Check on mobile with QR code</div>
                                 </div>
