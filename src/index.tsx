@@ -42,8 +42,8 @@ class App extends React.Component {
                             <Route path="/cart/delivery" element={<CartDelivery />}></Route>
                             <Route path="/cart/success" element={<CartSuccess />}></Route>
                         </Routes>
-                        <Footer />
                     </Main>
+                    <Footer />
                 </Eshop>
             </Router>
         )

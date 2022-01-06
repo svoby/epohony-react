@@ -55,7 +55,7 @@ const Category = () => {
                     setDataCategoryInfo(data.category.data.attributes)
                     setDataProductsInCategory(data.category.data.attributes.products.data)
                     setDataCategorySubcategories(data.categories.data)
-                    scrollToTop()
+                    scrollToTop('smooth')
                 });
         } catch (error) {
             console.log(error)

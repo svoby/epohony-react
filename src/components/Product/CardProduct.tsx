@@ -3,18 +3,17 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
 import { getPriceWithoutVAT } from '../../global.constants'
-import { ActionType, ProductType } from '../../global.types'
+import { ActionType, ProductCardType } from '../../global.types'
+import Placeholder from '../../layout/Placeholder'
 
-const CardProduct = ({ product }: { product: ProductType }) => {
+const CardProduct = ({ product }: ProductCardType) => {
 
     const navigate = useNavigate()
 
     return (
         <div className="card h-100 bg-100">
             <Link to={`/product/${product.id}`}>
-                <picture className="d-flex align-items-end p-2 pt-md-5 w-100 hover-up transition-primary">
-                    <img className="w-100" src="https://via.placeholder.com/308x184.png/f2f3f7" alt="" />
-                </picture>
+                <Placeholder w="308" h="184" color="f2f3f7" pictureClass='d-flex align-items-end p-2 pt-md-5 w-100 hover-up transition-primary' />
             </Link>
             <div className="d-flex flex-column justify-content-between h-100 px-4 pt-3 pb-4">
                 <div className="card-title">

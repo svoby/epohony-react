@@ -3,10 +3,11 @@ import { ChatAltIcon, CogIcon, ThumbUpIcon } from "@heroicons/react/outline"
 import { Link } from "react-router-dom"
 import { Container, Row, Col, Spacer } from "../layout/Grid"
 
+
 const Footer = () => {
+
     return (
         <>
-            <Spacer size="pt-5" />
             <section className="bg-gradient-primary h6 line-h-120 mb-0 pt-4 font-weight-normal text-white" id="bar-1">
                 <Container>
                     <Row>
