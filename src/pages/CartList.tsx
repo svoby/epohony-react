@@ -1,13 +1,14 @@
 import React, { useContext, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
-import { Container, Spacer } from '../layout/Grid'
+import { Col, Container, Row, Spacer } from '../layout/Grid'
 import { ChevronRightIcon, IdentificationIcon, ShoppingCartIcon, TruckIcon } from '@heroicons/react/outline'
 import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
 import CartTableRow from '../components/Cart/CartTableRow'
 import CartIsEmptyWarning from '../components/Cart/CartIsEmptyWarning'
 import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../global.constants'
 import CartBottomNavigation from '../components/Cart/CartBottonNavigation'
+import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
 
 const CartList = () => {
 
@@ -107,40 +108,31 @@ const CartList = () => {
 }
 
 const CartSteps = () => (
-    <div className="bg-white border border-capsule p-2 d-none d-md-block">
-        <div className="row gutters-md">
-            <div className="col-4">
-                <div className="d-flex h-100 align-items-center p-3 text-none border-capsule bg-gradient-primary text-white">
-                    <div className="icon-box-inline sx-40 rounded-circle border border-current mr-3">
-                        <ShoppingCartIcon className='sx-24' />
-                    </div>
-                    <div className="line-h-100">1. Cart</div>
-                    <div className="d-inline-block sx-32 ml-auto">
-                        <ChevronRightIcon className='sx-32' />
-                    </div>
-                </div>
-            </div>
-            <div className="col-4">
-                <Link to="/cart/shipping" className="d-flex h-100 align-items-center p-3 text-none border-capsule hover-bg-primary-alpha-20">
-                    <div className="icon-box-inline sx-40 rounded-circle border border-current mr-3">
-                        <TruckIcon className='sx-24' />
-                    </div>
-                    <div className="line-h-100">2. Shipping / Payment</div>
-                    <div className="d-inline-block sx-32 ml-auto">
-                        <ChevronRightIcon className='sx-32' />
-                    </div>
-                </Link>
-            </div>
-            <div className="col-4">
-                <div className="d-flex h-100 align-items-center p-3 text-none border-capsule text-500">
-                    <div className="icon-box-inline sx-40 rounded-circle border border-current mr-3">
-                        <IdentificationIcon className='sx-24' />
-                    </div>
-                    <div className="line-h-100">3. Delivery</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <StepsWrapper>
+        <Row size="gutters-md">
+            <Col size="col-4">
+                <Step to="/cart/list" state={'active'}>
+                    <IconBox><ShoppingCartIcon className='sx-24' /></IconBox>
+                    <div>1. Cart</div>
+                    <ChevronRightIcon className='ico sx-32 ml-auto' />
+                </Step>
+            </Col>
+            <Col size="col-4">
+                <Step to="/cart/shipping" state={false}>
+                    <IconBox><TruckIcon className='sx-24' /></IconBox>
+                    <div>2. Shipping</div>
+                    <ChevronRightIcon className='ico sx-32 ml-auto' />
+                </Step>
+            </Col>
+            <Col size="col-4">
+                <Step to="/cart/delivery" state={'disabled'}>
+                    <IconBox><IdentificationIcon className='sx-24' /></IconBox>
+                    <div>3. Delivery</div>
+                    <ChevronRightIcon className='ico sx-32 ml-auto' />
+                </Step>
+            </Col>
+        </Row>
+    </StepsWrapper>
 )
 
 export default CartList

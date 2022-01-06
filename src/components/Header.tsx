@@ -5,6 +5,26 @@ import { UserIcon, ShoppingCartIcon, MenuIcon } from '@heroicons/react/outline';
 import { cartPriceReducer, cartQuantityReducer } from "../global.constants";
 import ShopContext from "../context/ShopContext";
 import OffCanvas from "./OffCanvas/OffCanvas";
+import styled from "styled-components";
+
+const Notification = styled.span`
+    background: linear-gradient(135deg,red 30%,#FF000055 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: -12px;
+    right: -4px;
+    @media (max-width: 768px) {
+        top: -7px;
+    }
+`
 
 export default function Header() {
 
@@ -32,7 +52,7 @@ export default function Header() {
                         <Link to="/cart/list" className="d-inline-flex align-items-center text-white text-micro ml-1 ml-md-4 hover-secondary">
                             <span className="btn-primary btn-circle bg-gradient-secondary border-0 sx-40 mr-2 position-relative">
                                 <ShoppingCartIcon className="ico sx-24" />
-                                <span className="bg-danger text-white icon-box sx-24 rounded-circle small font-weight-bold position-absolute" style={{ top: "-0.7rem", right: "-0.2rem" }}>{totalCount}</span>
+                                <Notification>{totalCount}</Notification>
                             </span>
                             <span className="d-none d-md-block">
                                 <span className="font-weight-bold d-block">{totalPrice} Kč</span> Košík
