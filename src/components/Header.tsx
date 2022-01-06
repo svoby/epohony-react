@@ -19,7 +19,7 @@ const Notification = styled.span`
     font-size: 12px;
     font-weight: bold;
     position: absolute;
-    top: -12px;
+    top: -10px;
     right: -4px;
     @media (max-width: 768px) {
         top: -7px;

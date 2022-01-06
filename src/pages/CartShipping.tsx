@@ -37,14 +37,14 @@ const CartShipping = () => {
                         <Col size="col-lg-8 mb-4 mb-lg-0">
                             <h2 className="h5">Výběr dopravy</h2>
                             {shippings.map((item, key) => (
-                                <CartPaymentRow item={item} selectedId={payment?.id} key={key} groupName="shipping" onClickHandler={setShipping} />
+                                <CartPaymentRow item={item} selectedId={shipping?.id} key={key} groupName="shipping" onClickHandler={setShipping} />
                             ))}
 
                             <Spacer size="pt-5" />
 
                             <h2 className="h5">Výběr platby</h2>
                             {payments.map((item, key) => (
-                                <CartPaymentRow item={item} selectedId={shipping?.id} key={key} groupName="payment" onClickHandler={setPayment} />
+                                <CartPaymentRow item={item} selectedId={payment?.id} key={key} groupName="payment" onClickHandler={setPayment} />
                             ))}
                         </Col>
 
