@@ -56,13 +56,21 @@ export type PageOverlayPropsType = {
 }
 
 export type PaymentType = {
+    id: number,
     name: string,
     text: string,
     price: number
-}
+} | null
 
 export type ShippingType = {
+    id: number,
     name: string,
     text: string,
     price: number
+} | null
+
+export type CartSummaryType = {
+    cart: ProductType[],
+    payment: PaymentType,
+    shipping: ShippingType
 }

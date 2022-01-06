@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, To } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowNarrowLeftIcon, ArrowNarrowRightIcon } from '@heroicons/react/outline';
 
 type CartBottomNavType = {

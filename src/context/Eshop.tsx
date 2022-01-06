@@ -1,14 +1,13 @@
 import React, { ReactNode, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { payments, shippings } from '../components/Cart/ShippingConfig'
 import { PaymentType, ProductType, ShippingType } from '../global.types'
 import ShopContext from './ShopContext'
 
 const Eshop = ({ children } : { children : ReactNode }) => {
 
     const [cart, setCart] = useState<Array<ProductType>>([])
-    const [payment, setPayment] = useState<PaymentType>(payments[0])
-    const [shipping, setShipping] = useState<ShippingType>(shippings[0])
+    const [payment, setPayment] = useState<PaymentType>(null)
+    const [shipping, setShipping] = useState<ShippingType>(null)
     const navigate = useNavigate()
 
     const addToCart = (product: ProductType, redirectToCart = false) => {

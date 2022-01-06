@@ -1,10 +1,11 @@
 import React from 'react'
-import { ProductType, PaymentType, ShippingType } from '../global.types'
+import { defaultPayment, defaultShipping } from '../components/Cart/ShippingConfig'
+import { PaymentType, ProductType, ShippingType } from '../global.types'
 
 export default React.createContext({
     cart: Array<ProductType>(),
-    payment: { name: "", text: "", price: 0 },
-    shipping: { name: "", text: "", price: 0 },
+    payment: defaultPayment,
+    shipping: defaultShipping,
     setPayment: (payment: PaymentType) => { },
     setShipping: (shipping: ShippingType) => { },
     addToCart: (product: ProductType, redirect?: boolean) => { },

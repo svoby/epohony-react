@@ -1,5 +1,5 @@
 import React from 'react';
-import { SideMenuItemType, CategoryType } from '../../global.types';
+import { CategoryType } from '../../global.types';
 import SideMenuItem from "./SideMenuItem";
 
 const SideMenuNav = ({ items } : { items: Array<CategoryType> }) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CategoryType } from '../../global.types';
 
-const  SideMenuItem = ({id, attributes} : CategoryType) => {
+const  SideMenuItem = ({ id, attributes } : CategoryType) => {
     return (
         <li className="d-flex">
             <Link to={`/category/${id}`} className="d-flex px-2 py-2 mb-1 flex-grow-1 align-items-center rounded text-none text-black hover-primary hover-bg-secondary-alpha-10">

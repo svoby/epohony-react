@@ -18,6 +18,10 @@ type CartPaymentRowType = {
  * @param payment.price Item price
  */
 const CartPaymentRow = ({ payment, groupName, onClickHandler } : CartPaymentRowType) => {
+
+    if (payment == null)
+        return null
+
     return (
         <div className="cart-checkbox-row" onClick={() => onClickHandler(payment)}>
             <label className="d-flex align-items-center py-3 px-2 px-md-4 bg-100 border border-100 rounded hover-bg-primary-alpha-10 transition-primary">
