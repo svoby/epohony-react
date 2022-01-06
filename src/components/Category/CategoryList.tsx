@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { ChevronRightIcon } from '@heroicons/react/outline'
-import { CategoryType } from '../global.types';
+import { CategoryType } from '../../global.types';
 
 function CategoryListItem({ id, attributes } : CategoryType) {
     return (

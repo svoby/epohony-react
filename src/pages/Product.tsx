@@ -1,7 +1,7 @@
 import { ShoppingCartIcon } from '@heroicons/react/outline'
 import request, { gql } from 'graphql-request'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ProductImage from '../components/Product/ProductImage'
 import ProductImageThumbnail from '../components/Product/ProductImageThumbnail'
 import ProductTabs from '../components/Product/ProductTabs'
@@ -10,13 +10,14 @@ import SwiperProductSales from '../components/Swipers/SwiperProductSales'
 import { getPriceWithoutVAT, GRAPH_QL_API_ENTRYPOINT } from '../global.constants'
 import ShopContext from '../context/ShopContext'
 import { Col, Row, Spacer } from '../layout/Grid'
-import { ProductCardType } from '../global.types'
+import { ActionType, ProductType } from '../global.types'
 
 const Product = () => {
 
-    const [productData, setProductData] = useState<ProductCardType>()
+    const [productData, setProductData] = useState<ProductType>()
     const [activeImageId, setActiveDetailImage] = useState(0)
     const { id } = useParams()
+    const navigate = useNavigate()
     const queryProduct = gql`
         query {
             product(id: ${id}) {
@@ -97,8 +98,13 @@ const Product = () => {
                                             <div className="h3 mb-0">{productData.attributes.price}&nbsp;Kč</div>
                                             <div className="text-micro font-weight-bold mb-4">{getPriceWithoutVAT(productData.attributes.price)} Kč bez DPH</div>
                                             <ShopContext.Consumer>
-                                                {({ addToCart }) => (
-                                                    <button className="btn btn-secondary btn-lg w-100" onClick={() => addToCart({ id: productData.id, name: productData.attributes.name, price: productData.attributes.price, quantity: 1 }, true)}>
+                                                {({ dispatch }) => (
+                                                    <button
+                                                        className="btn btn-secondary btn-lg w-100"
+                                                        onClick={() => {
+                                                            dispatch({ type: ActionType.ADD_PRODUCT, productPayload: productData })
+                                                            navigate(`/cart/${productData.id}`)
+                                                        }}>
                                                         <ShoppingCartIcon className="ico sx-24 mr-2 align-text-bottom" /> VLOŽIT DO KOŠÍKU
                                                     </button>
                                                 )}

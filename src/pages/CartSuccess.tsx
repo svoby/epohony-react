@@ -4,13 +4,14 @@ import { Container, Spacer } from '../layout/Grid'
 import { ArrowNarrowDownIcon, ArrowNarrowRightIcon, CheckIcon, GiftIcon, HomeIcon, TruckIcon } from '@heroicons/react/outline'
 import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
 import { scrollToTop } from '../global.constants'
+import { ActionType } from '../global.types'
 
 export default function CartSuccess() {
 
-    const { purgeCart } = useContext(ShopContext)
+    const { dispatch } = useContext(ShopContext)
 
     useEffect(() => {
-        purgeCart()
+        dispatch({ type: ActionType.PURGE_CART })
         scrollToTop()
     }, [])
 

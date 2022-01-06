@@ -1,14 +1,17 @@
 import { ArrowRightIcon } from '@heroicons/react/outline'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
 import { getPriceWithoutVAT } from '../../global.constants'
-import { ProductCardType } from '../../global.types'
+import { ActionType, ProductType } from '../../global.types'
 
-const CardProduct = ({ id, attributes } : ProductCardType) => {
+const CardProduct = ({ product }: { product: ProductType }) => {
+
+    const navigate = useNavigate()
+
     return (
         <div className="card h-100 bg-100">
-            <Link to={`/product/${id}`}>
+            <Link to={`/product/${product.id}`}>
                 <picture className="d-flex align-items-end p-2 pt-md-5 w-100 hover-up transition-primary">
                     <img className="w-100" src="https://via.placeholder.com/308x184.png/f2f3f7" alt="" />
                 </picture>
@@ -29,22 +32,29 @@ const CardProduct = ({ id, attributes } : ProductCardType) => {
                     <div className="card__rating mb-3">
                         <div className="card__rating__rate" style={{ width: 50 + '%' }}></div>
                     </div>
-                    <Link to={`/product/${id}`} className="hover-border-secondary hover-up transition-primary">
-                        <div className="font-weight-semibold line-h-133 line-clamp line-clamp__2">{attributes.name}</div>
+                    <Link to={`/product/${product.id}`} className="hover-border-secondary hover-up transition-primary">
+                        <div className="font-weight-semibold line-h-133 line-clamp line-clamp__2">{product.attributes.name}</div>
                     </Link>
                 </div>
                 <div className="letter-spacing-sm">
                     <div className="d-flex justify-content-between">
                         <div>
-                            <span className="h5 mb-0">{attributes.price}&nbsp;Kč </span>s&nbsp;DPH
-                            <div className="d-block text-micro">{getPriceWithoutVAT(attributes.price)} bez&nbsp;DPH</div>
+                            <span className="h5 mb-0">{product.attributes.price}&nbsp;Kč </span>s&nbsp;DPH
+                            <div className="d-block text-micro">{getPriceWithoutVAT(product.attributes.price)} bez&nbsp;DPH</div>
                         </div>
                         <s className="text-muted mt-1">1.780 Kč</s>
                     </div>
                 </div>
                 <ShopContext.Consumer>
-                    {({ addToCart }) => (
-                        <button className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3" onClick={() => addToCart({ id: id, name: attributes.name, price: attributes.price, quantity: 1 }, true)}>Vložit do košíku <ArrowRightIcon className="ico sx-24" /></button>
+                    {({ dispatch }) => (
+                        <button
+                            className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3"
+                            onClick={() => {
+                                dispatch({ type: ActionType.ADD_PRODUCT, productPayload: product })
+                                navigate(`/cart/${product.id}`)
+                            }}>
+                            Vložit do košíku <ArrowRightIcon className="ico sx-24" />
+                        </button>
                     )}
                 </ShopContext.Consumer>
             </div>

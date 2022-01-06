@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import CategoryInfo from '../components/CategoryInfo'
-import CategoryList from '../components/CategoryList'
+import CategoryInfo from '../components/Category/CategoryInfo'
+import CategoryList from '../components/Category/CategoryList'
 import CardProduct from '../components/Product/CardProduct'
 import { Row, Col, Spacer } from "../layout/Grid"
 import { request, gql } from 'graphql-request'
 import SwiperProductsInCategory from '../components/Swipers/SwiperProductsInCategory'
 import { GRAPH_QL_API_ENTRYPOINT, scrollToTop } from '../global.constants'
-import { CategoryInfoType, CategoryType } from '../global.types'
+import { CategoryInfoType, CategoryType, ProductType } from '../global.types'
 
 const Category = () => {
 
     const [dataCategoryInfo, setDataCategoryInfo] = useState<CategoryInfoType>()
     const [dataCategorySubcategories, setDataCategorySubcategories] = useState<Array<CategoryType>>([])
-    const [dataProductsInCatalog, setDataProductsInCategory] = useState([])
+    const [dataProductsInCategory, setDataProductsInCategory] = useState<ProductType[]>([])
     const { id } = useParams();
 
     const queryCategory = gql`
@@ -69,9 +69,9 @@ const Category = () => {
                 <CategoryInfo {...dataCategoryInfo} />
                 <Spacer size="pt-4 pt-md-5" />
                 <Row size="gutters-md">
-                    {dataProductsInCatalog && dataProductsInCatalog.map((product, key) => (
+                    {dataProductsInCategory && dataProductsInCategory.map((product, key) => (
                         <Col size="col-md-6 col-lg-4 mb-2" key={key}>
-                            <CardProduct {...product} />
+                            <CardProduct product={product} />
                         </Col>
                     ))}
                 </Row>

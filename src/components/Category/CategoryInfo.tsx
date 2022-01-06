@@ -1,6 +1,6 @@
 import React from 'react'
-import { CategoryInfoType } from '../global.types';
-import { Spacer } from "../layout/Grid";
+import { CategoryInfoType } from '../../global.types';
+import { Spacer } from "../../layout/Grid";
 
 const CategoryInfo = ({ title, subtitle, text } : CategoryInfoType) => {
     return (

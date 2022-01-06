@@ -11,12 +11,12 @@ import { scrollToTop } from '../global.constants'
 import { payments, shippings } from '../components/Cart/ShippingConfig'
 import CartSummary from '../components/Cart/CartSummary'
 import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
-import { PaymentType, ShippingType } from '../global.types'
+import { ActionType, CartStateType } from '../global.types'
 
 const CartShipping = () => {
 
     const navigate = useNavigate()
-    const { cart, payment, shipping, setPayment, setShipping } = useContext(ShopContext)
+    const { cart, dispatch} = useContext(ShopContext)
 
     useEffect(() => scrollToTop(), [])
 
@@ -26,32 +26,42 @@ const CartShipping = () => {
 
             <h1 className="h2 text-uppercase">Košík</h1>
 
-            {!cart.length ? (
+            {!cart.products.length ? (
                 <CartIsEmptyWarning />
             ) : (
                 <>
-                    <CartSteps payment={payment} shipping={shipping} />
+                    <CartSteps cart={cart} />
                     <Spacer size="pt-5" />
 
                     <Row>
                         <Col size="col-lg-8 mb-4 mb-lg-0">
                             <h2 className="h5">Výběr dopravy</h2>
                             {shippings.map((item, key) => (
-                                <CartPaymentRow item={item} selectedId={shipping?.id} key={key} groupName="shipping" onClickHandler={setShipping} />
+                                <CartPaymentRow
+                                    item={item}
+                                    selectedId={cart.shipping?.id}
+                                    key={key}
+                                    groupName="shipping"
+                                    onClickHandler={() => dispatch({ type: ActionType.SET_SHIPPING, shipping: item })} />
                             ))}
 
                             <Spacer size="pt-5" />
 
                             <h2 className="h5">Výběr platby</h2>
                             {payments.map((item, key) => (
-                                <CartPaymentRow item={item} selectedId={payment?.id} key={key} groupName="payment" onClickHandler={setPayment} />
+                                <CartPaymentRow
+                                    item={item}
+                                    selectedId={cart.payment?.id}
+                                    key={key}
+                                    groupName="payment"
+                                    onClickHandler={() => dispatch({ type: ActionType.SET_PAYMENT, payment: item })} />
                             ))}
                         </Col>
 
                         <Col size="col-lg-4">
                             <div className="pl-lg-4">
                                 <h2 className="h5">Shrnutí objednávky</h2>
-                                <CartSummary cart={cart} payment={payment} shipping={shipping} />
+                                <CartSummary cart={cart} />
                             </div>
                         </Col>
                     </Row>
@@ -64,7 +74,7 @@ const CartShipping = () => {
                 backLinkHandler={() => navigate(-1)}
                 nextStepLabel="Pokračovat"
                 nextStepLinkTo="/cart/delivery"
-                disabled={payment == null || shipping == null} />
+                disabled={cart.payment == null || cart.shipping == null} />
             <Spacer size="pt-6" />
 
             <h3>Alternativní produkty</h3>
@@ -79,7 +89,7 @@ const CartShipping = () => {
     )
 }
 
-const CartSteps = ({ payment, shipping} : {payment: PaymentType, shipping: ShippingType}) => (
+const CartSteps = ({ cart } : { cart: CartStateType }) => (
     <StepsWrapper>
         <Row size="gutters-md">
             <Col size="col-4">
@@ -97,7 +107,7 @@ const CartSteps = ({ payment, shipping} : {payment: PaymentType, shipping: Shipp
                 </Step>
             </Col>
             <Col size="col-4">
-                <Step to="/cart/delivery" state={(payment == null || shipping == null) ? 'disabled' : false}>
+                <Step to="/cart/delivery" state={(cart.payment == null || cart.shipping == null) ? 'disabled' : false}>
                     <IconBox><IdentificationIcon className='sx-24' /></IconBox>
                     <div>3. Delivery</div>
                     <ChevronRightIcon className='ico sx-32 ml-auto' />

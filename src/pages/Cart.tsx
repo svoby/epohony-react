@@ -14,8 +14,8 @@ import { ProductType } from '../global.types'
 const Cart = () => {
 
     const { id } = useParams()
-    const { cart } = useContext(ShopContext)
-    const lastProducAdded = cart.find((product: ProductType) => product.id === id) || { name: 'Product not found' }
+    const { cart: cart2 } = useContext(ShopContext)
+    const lastProducAdded = cart2.products.find(( product: ProductType ) => product.id === id)
     const navigate = useNavigate()
 
     useEffect(() => scrollToTop(), [])
@@ -24,7 +24,7 @@ const Cart = () => {
         <Container>
             <Spacer size="pt-6" />
 
-            {!cart.length ? (
+            {!cart2.products.length ? (
                 <CartIsEmptyWarning />
             ) : (
                 <Row>
@@ -37,7 +37,7 @@ const Cart = () => {
                                 <h2 className="h5 font-weight-normal text-green">Zboží bylo přidáno do košíku</h2>
                             </div>
                             <div className="d-flex bg-300 align-items-center p-3 mb-3 rounded">
-                                <Placeholder w="80" h="80" color="CCCCCC" pictureClass="mr-4" /> {lastProducAdded && lastProducAdded.name}
+                                <Placeholder w="80" h="80" color="CCCCCC" pictureClass="mr-4" /> {lastProducAdded && lastProducAdded.attributes.name}
                             </div>
                         </div>
                     </Col>
@@ -98,7 +98,7 @@ const Cart = () => {
                 backLinkHandler={() => navigate(-1)}
                 nextStepLabel="Do košíku"
                 nextStepLinkTo="/cart/list"
-                disabled={!cart.length} />
+                disabled={!cart2.products.length} />
 
             <Spacer size="pt-6" />
             <SwiperProductSales />

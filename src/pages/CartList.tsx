@@ -13,8 +13,8 @@ import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
 const CartList = () => {
 
     const navigate = useNavigate()
-    const { cart } = useContext(ShopContext)
-    const totalPrice = cart.reduce(cartPriceReducer, 0)
+    const { cart: cart2 } = useContext(ShopContext)
+    const totalPrice = cart2.products.reduce(cartPriceReducer, 0)
 
     useEffect(() => scrollToTop(), [])
 
@@ -25,10 +25,10 @@ const CartList = () => {
             <h1 className="h2 text-uppercase">Košík</h1>
 
             <ShopContext.Consumer>
-                {({ cart }) => {
+                {({ cart: cart2 }) => {
 
                     // Is cart empty? Show notice
-                    if (!cart.length) {
+                    if (!cart2.products.length) {
                         return <CartIsEmptyWarning />
                     }
 
@@ -52,7 +52,7 @@ const CartList = () => {
                                 </div>
 
                                 {/* Cart table body */}
-                                {cart.map((product, key) => {
+                                {cart2.products.map((product, key) => {
                                     return <CartTableRow product={product} key={key} />
                                 })}
 
@@ -90,7 +90,7 @@ const CartList = () => {
                 backLinkHandler={() => navigate(-1)}
                 nextStepLabel="Pokračovat"
                 nextStepLinkTo="/cart/shipping"
-                disabled={!cart.length}
+                disabled={!cart2.products.length}
             />
 
             <Spacer size="pt-6" />

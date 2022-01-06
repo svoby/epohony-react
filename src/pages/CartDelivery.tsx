@@ -13,7 +13,7 @@ import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
 const CartDelivery = () => {
 
     const navigate = useNavigate()
-    const { cart, payment, shipping } = useContext(ShopContext)
+    const { cart } = useContext(ShopContext)
 
     useEffect(() => scrollToTop(), [])
 
@@ -23,7 +23,7 @@ const CartDelivery = () => {
 
             <h1 className="h2 text-uppercase">Košík</h1>
 
-            {!cart.length ? (
+            {!cart.products.length ? (
                 <CartIsEmptyWarning />
             ) : (
                 <>
@@ -78,7 +78,7 @@ const CartDelivery = () => {
                         <Col size="col-lg-4">
                             <div className="pl-lg-4">
                                 <h2 className="h5">Shrnutí objednávky</h2>
-                                <CartSummary cart={cart} payment={payment} shipping={shipping} />
+                                <CartSummary cart={cart} />
                             </div>
                         </Col>
                     </Row >
@@ -92,7 +92,7 @@ const CartDelivery = () => {
                 nextStepLabel="Dokončit objednávku"
                 nextStepLinkTo="/cart/success"
                 nextStepHandler={() => validateForm()}
-                disabled={!cart.length} />
+                disabled={!cart.products.length} />
             <Spacer size="pt-6" />
 
             <h3>Alternativní produkty</h3>

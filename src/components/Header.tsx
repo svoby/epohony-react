@@ -28,9 +28,9 @@ const Notification = styled.span`
 
 export default function Header() {
 
-    const { cart } = useContext(ShopContext)
-    const totalCount = cart.reduce(cartQuantityReducer, 0)
-    const totalPrice = cart.reduce(cartPriceReducer, 0)
+    const { cart: cart2 } = useContext(ShopContext)
+    const totalCount = cart2.products.reduce(cartQuantityReducer, 0)
+    const totalPrice = cart2.products.reduce(cartPriceReducer, 0)
     const [offCanvasShown, setOffCanvasShown] = useState(false)
     const offCanvasTogglerHandler = () => setOffCanvasShown(prevState => !prevState)
 
