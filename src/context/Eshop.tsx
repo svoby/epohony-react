@@ -47,7 +47,11 @@ const Eshop = ({ children } : { children : ReactNode }) => {
         setCart(cart.filter(item => item.id !== product.id))
     }
 
-    const purgeCart = () => setCart([])
+    const purgeCart = () => {
+        setCart([])
+        setPayment(null)
+        setShipping(null)
+    }
 
     return (
         <ShopContext.Provider value={{
