@@ -103,7 +103,7 @@ const Product = () => {
                                                     <button
                                                         className="btn btn-secondary btn-lg w-100"
                                                         onClick={() => {
-                                                            dispatch({ type: ActionType.ADD_PRODUCT, productPayload: productData })
+                                                            dispatch({ type: ActionType.ADD_PRODUCT, payload: productData })
                                                             navigate(`/cart/${productData.id}`)
                                                         }}>
                                                         <ShoppingCartIcon className="ico sx-24 mr-2 align-text-bottom" /> VLOŽIT DO KOŠÍKU

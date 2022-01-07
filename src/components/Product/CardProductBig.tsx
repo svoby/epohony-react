@@ -38,7 +38,7 @@ const CardProductBig = ({ product }: ProductCardType) => {
                 <button
                     className="btn btn-outline-primary d-inline-flex justify-content-between w-100 mt-3"
                     onClick={() => {
-                        dispatch({ type: ActionType.ADD_PRODUCT, productPayload: product })
+                        dispatch({ type: ActionType.ADD_PRODUCT, payload: product })
                         navigate(`/cart/${product.id}`)
                     }}>
                     Vložit do košíku <ArrowRightIcon className="sx-24" />

@@ -1,7 +1,7 @@
 import React from "react"
 import { ChatAltIcon, CogIcon, ThumbUpIcon } from "@heroicons/react/outline"
 import { Link } from "react-router-dom"
-import { Container, Row, Col, Spacer } from "../layout/Grid"
+import { Container, Row, Col } from "../layout/Grid"
 
 
 const Footer = () => {

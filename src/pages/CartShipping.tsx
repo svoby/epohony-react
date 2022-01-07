@@ -16,7 +16,7 @@ import { ActionType, CartStateType } from '../global.types'
 const CartShipping = () => {
 
     const navigate = useNavigate()
-    const { cart, dispatch} = useContext(ShopContext)
+    const { cart, dispatch } = useContext(ShopContext)
 
     useEffect(() => scrollToTop(), [])
 
@@ -36,25 +36,25 @@ const CartShipping = () => {
                     <Row>
                         <Col size="col-lg-8 mb-4 mb-lg-0">
                             <h2 className="h5">Výběr dopravy</h2>
-                            {shippings.map((item, key) => (
+                            {shippings.map((shipping, key) => (
                                 <CartPaymentRow
-                                    item={item}
+                                    item={shipping}
                                     selectedId={cart.shipping?.id}
                                     key={key}
                                     groupName="shipping"
-                                    onClickHandler={() => dispatch({ type: ActionType.SET_SHIPPING, shipping: item })} />
+                                    onClickHandler={() => dispatch({ type: ActionType.SET_SHIPPING, payload: shipping })} />
                             ))}
 
                             <Spacer size="pt-5" />
 
                             <h2 className="h5">Výběr platby</h2>
-                            {payments.map((item, key) => (
+                            {payments.map((payment, key) => (
                                 <CartPaymentRow
-                                    item={item}
+                                    item={payment}
                                     selectedId={cart.payment?.id}
                                     key={key}
                                     groupName="payment"
-                                    onClickHandler={() => dispatch({ type: ActionType.SET_PAYMENT, payment: item })} />
+                                    onClickHandler={() => dispatch({ type: ActionType.SET_PAYMENT, payload: payment })} />
                             ))}
                         </Col>
 
@@ -89,7 +89,7 @@ const CartShipping = () => {
     )
 }
 
-const CartSteps = ({ cart } : { cart: CartStateType }) => (
+const CartSteps = ({ cart }: { cart: CartStateType }) => (
     <StepsWrapper>
         <Row size="gutters-md">
             <Col size="col-4">

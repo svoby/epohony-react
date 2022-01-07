@@ -5,7 +5,7 @@ import { CategoryType } from '../../global.types';
 const SideMenuItem = ({ id, attributes }: CategoryType) => {
 
     const { id: uriId } = useParams()
-    const addClass = id == uriId ? 'bg-gradient-primary text-white' : 'text-black hover-primary hover-bg-secondary-alpha-10'
+    const addClass = id === uriId ? 'bg-gradient-primary text-white' : 'text-black hover-primary hover-bg-secondary-alpha-10'
 
     return (
         <li className="d-flex">

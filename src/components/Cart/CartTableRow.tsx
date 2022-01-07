@@ -5,7 +5,7 @@ import { getPriceWithoutVAT } from '../../global.constants'
 import { ActionType, ProductType } from '../../global.types'
 import Placeholder from '../../layout/Placeholder'
 
-const CartTableRow = ({ product } : { product: ProductType }) => {
+const CartTableRow = ({ product }: { product: ProductType }) => {
 
     const { dispatch } = useContext(ShopContext)
 
@@ -16,11 +16,11 @@ const CartTableRow = ({ product } : { product: ProductType }) => {
             </div>
             <div className="cart-table__name">{product.attributes.name}</div>
             <div className="cart-table__amount" data-js="plusminus">
-                <button onClick={() => dispatch({ type: ActionType.DECREASE_PRODUCT_COUNT, productPayload: product })} className="btn btn-outline-primary p-0 icon-box-inline sx-40 border border-500 rounded-circle">
+                <button onClick={() => dispatch({ type: ActionType.DECREASE_PRODUCT_COUNT, payload: product })} className="btn btn-outline-primary p-0 icon-box-inline sx-40 border border-500 rounded-circle">
                     <MinusIcon className='sx-24' />
                 </button>
                 <input className="cart-table__amount__input" type="text" readOnly value={product.quantity} />
-                <button onClick={() => dispatch({ type: ActionType.INCREASE_PRODUCT_COUNT, productPayload: product })} className="btn btn-outline-primary p-0 icon-box-inline sx-40 border border-500 rounded-circle">
+                <button onClick={() => dispatch({ type: ActionType.INCREASE_PRODUCT_COUNT, payload: product })} className="btn btn-outline-primary p-0 icon-box-inline sx-40 border border-500 rounded-circle">
                     <PlusIcon className='sx-24' />
                 </button>
             </div>
@@ -31,7 +31,7 @@ const CartTableRow = ({ product } : { product: ProductType }) => {
                 <div className="text-micro text-muted d-md-none">s DPH</div>{product.attributes.price} Kč
             </div>
             <div className="cart-table__action">
-                <button onClick={() => dispatch({ type: ActionType.DELETE_PRODUCT, productPayload: product })} className="btn btn-sm text-danger icon-box-inline p-0 sx-48 hover-border-red hover-bg-red-alpha-10" title="Remove product"><TrashIcon className='sx-24' /></button>
+                <button onClick={() => dispatch({ type: ActionType.DELETE_PRODUCT, payload: product })} className="btn btn-sm text-danger icon-box-inline p-0 sx-48 hover-border-red hover-bg-red-alpha-10" title="Remove product"><TrashIcon className='sx-24' /></button>
             </div>
         </div>
     )

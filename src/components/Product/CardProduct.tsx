@@ -49,7 +49,7 @@ const CardProduct = ({ product }: ProductCardType) => {
                         <button
                             className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3"
                             onClick={() => {
-                                dispatch({ type: ActionType.ADD_PRODUCT, productPayload: product })
+                                dispatch({ type: ActionType.ADD_PRODUCT, payload: product })
                                 navigate(`/cart/${product.id}`)
                             }}>
                             Vložit do košíku <ArrowRightIcon className="ico sx-24" />
