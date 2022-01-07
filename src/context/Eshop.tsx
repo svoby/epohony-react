@@ -1,9 +1,9 @@
 import React, { ReactNode, useReducer } from 'react'
 import { defaultCartState } from '../components/Cart/ShippingConfig'
-import { ActionType, CartReducerActionTypes, CartStateType, ProductType } from '../global.types'
+import { ActionType, CartReducerActionsType, CartStateType, ProductType } from '../global.types'
 import ShopContext from './ShopContext'
 
-const reducer = (state: CartStateType, action: CartReducerActionTypes): CartStateType => {
+const reducer = (state: CartStateType, action: CartReducerActionsType): CartStateType => {
 
     const products = [...state.products]
 

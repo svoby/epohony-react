@@ -50,7 +50,7 @@ export type CartStateType = {
 }
 
 export type CartActionType = {
-    type: CartReducerActionTypes,
+    type: CartReducerActionsType,
     payload?: any
 }
 
@@ -72,16 +72,6 @@ export type CartSummaryType = {
     cart: CartStateType
 }
 
-// export enum ActionType {
-//     ADD_PRODUCT = 'ADD_PRODUCT',
-//     INCREASE_PRODUCT_COUNT = 'INCREASE_PRODUCT_COUNT',
-//     DECREASE_PRODUCT_COUNT = 'DECREASE_PRODUCT_COUNT',
-//     DELETE_PRODUCT = 'DELETE_PRODUCT',
-//     PURGE_CART = 'PURGE_CART',
-//     SET_SHIPPING = 'SET_SHIPPING',
-//     SET_PAYMENT = 'SET_PAYMENT'
-// }
-
 export enum ActionType {
     ADD_PRODUCT,
     INCREASE_PRODUCT_COUNT,
@@ -91,46 +81,11 @@ export enum ActionType {
     SET_SHIPPING,
     SET_PAYMENT
 }
-
-export type AddProductAction = {
-    type: ActionType.ADD_PRODUCT,
-    payload: ProductType
-}
-
-export type IncreaseProductCountAction = {
-    type: ActionType.INCREASE_PRODUCT_COUNT,
-    payload: ProductType
-}
-
-export type DecreaseProductCountAction = {
-    type: ActionType.DECREASE_PRODUCT_COUNT,
-    payload: ProductType
-}
-
-export type DeleteProductAction = {
-    type: ActionType.DELETE_PRODUCT,
-    payload: ProductType
-}
-
-export type PurgeCartAction = {
-    type: ActionType.PURGE_CART
-}
-
-export type SetShippingAction = {
-    type: ActionType.SET_SHIPPING,
-    payload: ShippingType
-}
-
-export type SetPaymentAction = {
-    type: ActionType.SET_PAYMENT,
-    payload: ShippingType
-}
-
-export type CartReducerActionTypes =
-    AddProductAction |
-    IncreaseProductCountAction |
-    DecreaseProductCountAction |
-    DeleteProductAction |
-    PurgeCartAction |
-    SetShippingAction |
-    SetPaymentAction
+export type CartReducerActionsType =
+    { type: ActionType.ADD_PRODUCT, payload: ProductType } |
+    { type: ActionType.INCREASE_PRODUCT_COUNT, payload: ProductType } |
+    { type: ActionType.DECREASE_PRODUCT_COUNT, payload: ProductType } |
+    { type: ActionType.DELETE_PRODUCT, payload: ProductType } |
+    { type: ActionType.SET_SHIPPING, payload: ShippingType } |
+    { type: ActionType.SET_PAYMENT, payload: PaymentType } |
+    { type: ActionType.PURGE_CART }
