@@ -97,7 +97,7 @@ export type AddProductAction = {
     payload: ProductType
 }
 
-export type IncreaceProductCountAction = {
+export type IncreaseProductCountAction = {
     type: ActionType.INCREASE_PRODUCT_COUNT,
     payload: ProductType
 }
@@ -128,7 +128,7 @@ export type SetPaymentAction = {
 
 export type CartReducerActionTypes =
     AddProductAction |
-    IncreaceProductCountAction |
+    IncreaseProductCountAction |
     DecreaseProductCountAction |
     DeleteProductAction |
     PurgeCartAction |
