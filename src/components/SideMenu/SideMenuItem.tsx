@@ -1,3 +1,4 @@
+import { ChevronRightIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { CategoryType } from '../../global.types';
@@ -6,6 +7,15 @@ const SideMenuItem = ({ id, attributes }: CategoryType) => {
 
     const { id: uriId } = useParams()
     const addClass = id === uriId ? 'bg-gradient-primary text-white' : 'text-black hover-primary hover-bg-secondary-alpha-10'
+    const subItemsCount = attributes.products ? attributes.products.data.length : 0
+
+    const ItemAppend = () => {
+        if (subItemsCount === 0) {
+            return <span className="ml-auto"><ChevronRightIcon className='sx-16' /></span>
+        } else {
+            return <span className="text-micro text-none text-200 ml-auto">{subItemsCount}</span>
+        }
+    }
 
     return (
         <li className="d-flex">
@@ -13,7 +23,7 @@ const SideMenuItem = ({ id, attributes }: CategoryType) => {
                 <span className="mr-2 line-h-110">
                     {attributes.title}
                 </span>
-                <span className="text-micro text-none text-200 ml-auto">99</span>
+                <ItemAppend />
             </Link>
         </li>
     )

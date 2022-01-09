@@ -1,4 +1,4 @@
-import React, { ReactNode, useReducer } from 'react'
+import React, { FC, useReducer } from 'react'
 import { defaultCartState } from '../components/Cart/ShippingConfig'
 import { ActionType, CartReducerActionsType, CartStateType, ProductType } from '../global.types'
 import ShopContext from './ShopContext'
@@ -57,7 +57,7 @@ const reducer = (state: CartStateType, action: CartReducerActionsType): CartStat
     }
 }
 
-const Eshop = ({ children }: { children: ReactNode }) => {
+const Eshop: FC = ({ children }) => {
 
     const [cart, dispatch] = useReducer(reducer, defaultCartState)
 

@@ -16,6 +16,7 @@ export type CategoryType = {
     id: string,
     attributes: {
         title: string
+        products?: { data: []}
     }
 }
 
@@ -39,19 +40,10 @@ export type SideMenuTitleType = {
     title: string
 }
 
-export type PageOverlayPropsType = {
-    shown: boolean
-}
-
 export type CartStateType = {
     products: ProductType[],
     payment: PaymentType,
     shipping: ShippingType
-}
-
-export type CartActionType = {
-    type: CartReducerActionsType,
-    payload?: any
 }
 
 export type PaymentType = {

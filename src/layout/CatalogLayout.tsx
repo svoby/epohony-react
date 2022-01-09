@@ -6,7 +6,7 @@ import { Spacer, Container, Row, Col } from './Grid'
 import { GRAPH_QL_API_ENTRYPOINT } from '../global.constants'
 import { CategoryType } from '../global.types'
 
-const CatalogLayout = ({ children } : { children: ReactNode }) => {
+const CatalogLayout = ({ children }: { children: ReactNode }) => {
 
     const [dataMainCategories, setDataMainCategories] = useState<Array<CategoryType>>([])
 
@@ -16,7 +16,12 @@ const CatalogLayout = ({ children } : { children: ReactNode }) => {
                 data {
                     id
                     attributes {
-                        title
+                        title,
+                        products {
+                            data {
+                                id
+                            }
+                        }
                     }
                 }
             }
