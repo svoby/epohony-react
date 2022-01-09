@@ -2,9 +2,9 @@ import { ArrowRightIcon } from '@heroicons/react/outline'
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
-import { ActionType, ProductCardType } from '../../global.types'
+import { ActionType, IProduct } from '../../global.types'
 
-const CardProductBig = ({ product }: ProductCardType) => {
+const CardProductBig = ({ product }: { product: IProduct }) => {
 
     const { dispatch } = useContext(ShopContext)
     const navigate = useNavigate()

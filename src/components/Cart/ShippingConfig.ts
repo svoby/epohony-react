@@ -1,20 +1,6 @@
-import { CartStateType, PaymentType, ShippingType } from "../../global.types"
+import { ICart } from "../../global.types"
 
-export const defaultPayment: PaymentType = {
-    id: -1,
-    name: "Default payment",
-    text: "Default payment description",
-    price: 0
-}
-
-export const defaultShipping: ShippingType = {
-    id: -1,
-    name: "Default shipping",
-    text: "Default shipping description",
-    price: 0
-}
-
-export const defaultCartState: CartStateType = {
+export const defaultCartState: ICart = {
     products: [],
     payment: null,
     shipping: null

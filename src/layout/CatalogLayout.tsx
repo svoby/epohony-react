@@ -4,11 +4,11 @@ import SidemenuTitle from '../components/SideMenu/SideMenuTitle'
 import SideMenuNav from '../components/SideMenu/SideMenuNav'
 import { Spacer, Container, Row, Col } from './Grid'
 import { GRAPH_QL_API_ENTRYPOINT } from '../global.constants'
-import { CategoryType } from '../global.types'
+import { ICategory } from '../global.types'
 
 const CatalogLayout = ({ children }: { children: ReactNode }) => {
 
-    const [dataMainCategories, setDataMainCategories] = useState<Array<CategoryType>>([])
+    const [dataMainCategories, setDataMainCategories] = useState<Array<ICategory>>([])
 
     const queryCategory = gql`
         query {

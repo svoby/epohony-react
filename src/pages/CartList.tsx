@@ -13,8 +13,8 @@ import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
 const CartList = () => {
 
     const navigate = useNavigate()
-    const { cart: cart2 } = useContext(ShopContext)
-    const totalPrice = cart2.products.reduce(cartPriceReducer, 0)
+    const { cart } = useContext(ShopContext)
+    const totalPrice = cart.products.reduce(cartPriceReducer, 0)
 
     useEffect(() => scrollToTop(), [])
 
@@ -52,7 +52,7 @@ const CartList = () => {
                                 </div>
 
                                 {/* Cart table body */}
-                                {cart2.products.map((product, key) => {
+                                {cart.products.map((product, key) => {
                                     return <CartTableRow product={product} key={key} />
                                 })}
 
@@ -90,7 +90,7 @@ const CartList = () => {
                 backLinkHandler={() => navigate(-1)}
                 nextStepLabel="Pokračovat"
                 nextStepLinkTo="/cart/shipping"
-                disabled={!cart2.products.length}
+                disabled={!cart.products.length}
             />
 
             <Spacer size="pt-6" />

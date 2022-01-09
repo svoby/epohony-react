@@ -3,10 +3,10 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import ShopContext from '../../context/ShopContext'
 import { getPriceWithoutVAT } from '../../global.constants'
-import { ActionType, ProductCardType } from '../../global.types'
+import { ActionType, IProduct } from '../../global.types'
 import Placeholder from '../../layout/Placeholder'
 
-const CardProduct = ({ product }: ProductCardType) => {
+const CardProduct = ({ product }: { product: IProduct }) => {
 
     const navigate = useNavigate()
 

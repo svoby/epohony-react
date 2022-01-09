@@ -1,9 +1,9 @@
 import { ChevronRightIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { CategoryType } from '../../global.types';
+import { ICategory } from '../../global.types';
 
-const SideMenuItem = ({ id, attributes }: CategoryType) => {
+const SideMenuItem = ({ id, attributes }: ICategory) => {
 
     const { id: uriId } = useParams()
     const addClass = id === uriId ? 'bg-gradient-primary text-white' : 'text-black hover-primary hover-bg-secondary-alpha-10'

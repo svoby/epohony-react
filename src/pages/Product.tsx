@@ -10,11 +10,11 @@ import SwiperProductSales from '../components/Swipers/SwiperProductSales'
 import { getPriceWithoutVAT, GRAPH_QL_API_ENTRYPOINT, scrollToTop } from '../global.constants'
 import ShopContext from '../context/ShopContext'
 import { Col, Row, Spacer } from '../layout/Grid'
-import { ActionType, ProductType } from '../global.types'
+import { ActionType, IProduct } from '../global.types'
 
 const Product = () => {
 
-    const [productData, setProductData] = useState<ProductType>()
+    const [productData, setProductData] = useState<IProduct>()
     const [activeImageId, setActiveDetailImage] = useState(0)
     const { id } = useParams()
     const navigate = useNavigate()

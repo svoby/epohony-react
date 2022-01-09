@@ -1,9 +1,9 @@
 import React from 'react'
 import Placeholder from '../../layout/Placeholder'
-import { CartSummaryType } from '../../global.types'
+import { ICart } from '../../global.types'
 import { cartPriceReducer, getPriceWithoutVAT } from '../../global.constants'
 
-const CartSummary = ({ cart }: CartSummaryType) => {
+const CartSummary = ({ cart }: { cart: ICart }) => {
 
     let totalPrice = cart.products.reduce(cartPriceReducer, 0)
     totalPrice += (cart.payment?.price ? cart.payment.price : 0) + (cart.shipping?.price ? cart.shipping.price : 0)

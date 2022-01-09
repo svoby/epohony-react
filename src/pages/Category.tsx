@@ -7,13 +7,13 @@ import { Row, Col, Spacer } from "../layout/Grid"
 import { request, gql } from 'graphql-request'
 import SwiperProductsInCategory from '../components/Swipers/SwiperProductsInCategory'
 import { GRAPH_QL_API_ENTRYPOINT, scrollToTop } from '../global.constants'
-import { CategoryInfoType, CategoryType, ProductType } from '../global.types'
+import { ICategoryInfo, ICategory, IProduct } from '../global.types'
 
 const Category = () => {
 
-    const [dataCategoryInfo, setDataCategoryInfo] = useState<CategoryInfoType>()
-    const [dataCategorySubcategories, setDataCategorySubcategories] = useState<Array<CategoryType>>([])
-    const [dataProductsInCategory, setDataProductsInCategory] = useState<ProductType[]>([])
+    const [dataCategoryInfo, setDataCategoryInfo] = useState<ICategoryInfo>()
+    const [dataCategorySubcategories, setDataCategorySubcategories] = useState<Array<ICategory>>([])
+    const [dataProductsInCategory, setDataProductsInCategory] = useState<IProduct[]>([])
     const { id } = useParams();
 
     const queryCategory = gql`

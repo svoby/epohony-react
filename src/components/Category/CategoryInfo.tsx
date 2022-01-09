@@ -1,8 +1,8 @@
 import React from 'react'
-import { CategoryInfoType } from '../../global.types';
+import { ICategoryInfo } from '../../global.types';
 import { Spacer } from "../../layout/Grid";
 
-const CategoryInfo = ({ title, subtitle, text } : CategoryInfoType) => {
+const CategoryInfo = ({ title, subtitle, text }: ICategoryInfo) => {
     return (
         <section>
             <Spacer size="pt-4" />

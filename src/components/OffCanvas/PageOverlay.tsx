@@ -1,7 +1,7 @@
 import React from "react";
-import { OffCanvasPropType } from "../../global.types";
+import { IOffCanvas } from "../../global.types";
 
-const PageOverlay = ({ shown, togglerHandler } : OffCanvasPropType) => {
+const PageOverlay = ({ shown, togglerHandler }: IOffCanvas) => {
     return <div className={`mobile-nav-overlay fullscreen ${shown ? 'show' : ''}`} onClick={togglerHandler}></div>
 }
 

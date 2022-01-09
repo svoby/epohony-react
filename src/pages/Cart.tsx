@@ -9,13 +9,13 @@ import SwiperProductSales from '../components/Swipers/SwiperProductSales'
 import CartBottomNavigation from '../components/Cart/CartBottonNavigation'
 import CartIsEmptyWarning from "../components/Cart/CartIsEmptyWarning"
 import { scrollToTop } from '../global.constants'
-import { ProductType } from '../global.types'
+import { IProduct } from '../global.types'
 
 const Cart = () => {
 
     const { id } = useParams()
     const { cart: cart2 } = useContext(ShopContext)
-    const lastProducAdded = cart2.products.find(( product: ProductType ) => product.id === id)
+    const lastProducAdded = cart2.products.find((product: IProduct) => product.id === id)
     const navigate = useNavigate()
 
     useEffect(() => scrollToTop(), [])

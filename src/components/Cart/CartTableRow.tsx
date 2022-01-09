@@ -2,10 +2,10 @@ import { MinusIcon, PlusIcon, TrashIcon } from '@heroicons/react/outline'
 import React, { useContext } from 'react'
 import ShopContext from '../../context/ShopContext'
 import { getPriceWithoutVAT } from '../../global.constants'
-import { ActionType, ProductType } from '../../global.types'
+import { ActionType, IProduct } from '../../global.types'
 import Placeholder from '../../layout/Placeholder'
 
-const CartTableRow = ({ product }: { product: ProductType }) => {
+const CartTableRow = ({ product }: { product: IProduct }) => {
 
     const { dispatch } = useContext(ShopContext)
 

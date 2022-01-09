@@ -11,7 +11,7 @@ import { scrollToTop } from '../global.constants'
 import { payments, shippings } from '../components/Cart/ShippingConfig'
 import CartSummary from '../components/Cart/CartSummary'
 import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
-import { ActionType, CartStateType } from '../global.types'
+import { ActionType, ICart } from '../global.types'
 
 const CartShipping = () => {
 
@@ -89,7 +89,7 @@ const CartShipping = () => {
     )
 }
 
-const CartSteps = ({ cart }: { cart: CartStateType }) => (
+const CartSteps = ({ cart }: { cart: ICart }) => (
     <StepsWrapper>
         <Row size="gutters-md">
             <Col size="col-4">

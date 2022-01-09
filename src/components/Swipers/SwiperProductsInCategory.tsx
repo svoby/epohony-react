@@ -4,12 +4,12 @@ import SwiperCore, { Navigation } from 'swiper';
 import CardProductBig from '../Product/CardProductBig';
 import "swiper/css"
 import "swiper/css/navigation"
-import { ProductType } from '../../global.types';
+import { IProduct } from '../../global.types';
 
 
 SwiperCore.use([Navigation]);
 
-const MockupProduct: ProductType = {
+const MockupProduct: IProduct = {
     id: "1",
     attributes: {
         name: 'BH30/803 - ROGER Brushless pohony posuvných bran do Umami lo-fi bushwick swag',

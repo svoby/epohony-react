@@ -1,4 +1,4 @@
-export type ProductType = {
+export interface IProduct {
     id: string,
     attributes: {
         name: string,
@@ -8,11 +8,7 @@ export type ProductType = {
     quantity: number
 }
 
-export type ProductCardType = {
-    product: ProductType
-}
-
-export type CategoryType = {
+export interface ICategory {
     id: string,
     attributes: {
         title: string
@@ -20,48 +16,39 @@ export type CategoryType = {
     }
 }
 
-export type CategoryInfoType = {
+export interface ICategoryInfo {
     title?: string,
     subtitle?: string,
     text?: string
 }
 
-export type SideMenuItemType = {
-    id: string;
-    title: string;
-}
-
-export type OffCanvasPropType = {
+export interface IOffCanvas {
     shown: Boolean,
     togglerHandler: () => void
 }
 
-export type SideMenuTitleType = {
+export interface ISideMenuTitle {
     title: string
 }
 
-export type CartStateType = {
-    products: ProductType[],
-    payment: PaymentType,
-    shipping: ShippingType
+export interface ICart {
+    products: IProduct[],
+    payment: IPayment | null,
+    shipping: IShipping | null
 }
 
-export type PaymentType = {
+export interface IPayment {
     id: number,
     name: string,
     text: string,
     price: number
-} | null
+}
 
-export type ShippingType = {
+export interface IShipping {
     id: number,
     name: string,
     text: string,
     price: number
-} | null
-
-export type CartSummaryType = {
-    cart: CartStateType
 }
 
 export enum ActionType {
@@ -74,10 +61,10 @@ export enum ActionType {
     SET_PAYMENT
 }
 export type CartReducerActionsType =
-    { type: ActionType.ADD_PRODUCT, payload: ProductType } |
-    { type: ActionType.INCREASE_PRODUCT_COUNT, payload: ProductType } |
-    { type: ActionType.DECREASE_PRODUCT_COUNT, payload: ProductType } |
-    { type: ActionType.DELETE_PRODUCT, payload: ProductType } |
-    { type: ActionType.SET_SHIPPING, payload: ShippingType } |
-    { type: ActionType.SET_PAYMENT, payload: PaymentType } |
+    { type: ActionType.ADD_PRODUCT, payload: IProduct } |
+    { type: ActionType.INCREASE_PRODUCT_COUNT, payload: IProduct } |
+    { type: ActionType.DECREASE_PRODUCT_COUNT, payload: IProduct } |
+    { type: ActionType.DELETE_PRODUCT, payload: IProduct } |
+    { type: ActionType.SET_SHIPPING, payload: IShipping } |
+    { type: ActionType.SET_PAYMENT, payload: IPayment } |
     { type: ActionType.PURGE_CART }

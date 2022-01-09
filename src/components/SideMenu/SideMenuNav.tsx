@@ -1,8 +1,8 @@
 import React from 'react';
-import { CategoryType } from '../../global.types';
+import { ICategory } from '../../global.types';
 import SideMenuItem from "./SideMenuItem";
 
-const SideMenuNav = ({ items } : { items: Array<CategoryType> }) => {
+const SideMenuNav = ({ items }: { items: Array<ICategory> }) => {
 
     if (items == null)
         return null;
@@ -10,7 +10,7 @@ const SideMenuNav = ({ items } : { items: Array<CategoryType> }) => {
     return (
         <nav>
             <ul className="nav flex-column">
-                {items.map((item: CategoryType, key: any) => <SideMenuItem {...item} key={key} />)}
+                {items.map((item: ICategory, key: any) => <SideMenuItem {...item} key={key} />)}
             </ul>
         </nav>
     )

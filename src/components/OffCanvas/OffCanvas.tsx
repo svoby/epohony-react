@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import request, { gql } from 'graphql-request'
 import { GRAPH_QL_API_ENTRYPOINT } from '../../global.constants'
 import { PlusIcon } from '@heroicons/react/outline'
-import { CategoryType, OffCanvasPropType } from '../../global.types'
+import { ICategory, IOffCanvas } from '../../global.types'
 import PageOverlay from './PageOverlay'
 import SideMenuNav from '../SideMenu/SideMenuNav'
 import SideMenuTitle from '../SideMenu/SideMenuTitle'
@@ -20,9 +20,9 @@ const queryCategories = gql`
     }
 `
 
-const OffCanvas = ({ shown, togglerHandler }: OffCanvasPropType) => {
+const OffCanvas = ({ shown, togglerHandler }: IOffCanvas) => {
 
-    const [categories, setCategories] = useState<Array<CategoryType>>([])
+    const [categories, setCategories] = useState<Array<ICategory>>([])
 
     useEffect(() => {
         request(GRAPH_QL_API_ENTRYPOINT, queryCategories)
