@@ -2,6 +2,8 @@ import request, { gql } from 'graphql-request'
 import React, { FC, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { GRAPHQL_API_ENTRYPOINT } from '../../global.constants'
+import { IOrder } from '../../global.types'
+import { DeleteOrder } from './API'
 import OrderTableRow from './OrderTableRow'
 
 const queryOrders = gql`
@@ -20,7 +22,14 @@ const queryOrders = gql`
 
 const UserOrders: FC = () => {
 
-    const [dataOrders, setDataOrders] = useState([])
+    const [dataOrders, setDataOrders] = useState<IOrder[]>([])
+
+    const deleteHandler = (order: IOrder) => {
+        DeleteOrder(order)
+            .then(() => {
+                setDataOrders((orders) => orders.filter(i => i.id !== order.id))
+            })
+    }
 
     useEffect(() => {
         request(GRAPHQL_API_ENTRYPOINT, queryOrders)
@@ -57,7 +66,7 @@ const UserOrders: FC = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {dataOrders.map((order, key) => <OrderTableRow {...order} key={key} />)}
+                                {dataOrders.map((order, key) => <OrderTableRow order={order} deleteHandler={deleteHandler} key={key} />)}
                             </tbody>
                         </table>
                     </div>

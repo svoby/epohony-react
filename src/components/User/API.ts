@@ -27,3 +27,12 @@ export async function SaveOrder(order: IOrder): Promise<IOrder> {
         })
     }).then(resp => resp.json())
 }
+
+export async function DeleteOrder(order: IOrder): Promise<IOrder> {
+    return fetch(API_ORDERS_URL + `/${order.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(resp => resp.json())
+ }

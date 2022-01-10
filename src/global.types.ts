@@ -49,6 +49,11 @@ export interface IOrder {
     }
 }
 
+export interface IOrderRow {
+    order: IOrder,
+    deleteHandler: (order: IOrder) => void
+}
+
 export interface IUser {
     name: string,
     surname: string,
@@ -82,7 +87,8 @@ export enum ActionType {
     SET_SHIPPING,
     SET_PAYMENT,
     USER_LOGIN,
-    USER_LOGOUT
+    USER_LOGOUT,
+    DELETE_ORDER
 }
 export type CartReducerActionsType =
     { type: ActionType.ADD_PRODUCT, payload: IProduct } |
@@ -93,4 +99,5 @@ export type CartReducerActionsType =
     { type: ActionType.SET_PAYMENT, payload: IPayment } |
     { type: ActionType.PURGE_CART } |
     { type: ActionType.USER_LOGIN, payload: IUser } |
-    { type: ActionType.USER_LOGOUT }
+    { type: ActionType.USER_LOGOUT } |
+    { type: ActionType.DELETE_ORDER, payload: IOrder }
