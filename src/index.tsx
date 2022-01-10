@@ -14,6 +14,8 @@ import CartDelivery from "./pages/CartDelivery";
 import CartSuccess from "./pages/CartSuccess";
 import Eshop from "./context/Eshop";
 import Main from "./layout/Main";
+import UserLayout from "./layout/UserLayout";
+import User from "./pages/User";
 
 class App extends React.Component {
     render() {
@@ -28,19 +30,22 @@ class App extends React.Component {
                                 <CatalogLayout>
                                     <Category />
                                 </CatalogLayout>
-                            }>
-                            </Route>
+                            }></Route>
                             <Route path="/product/:id" element={
                                 <CatalogLayout>
                                     <Product />
                                 </CatalogLayout>
-                            }>
-                            </Route>
+                            }></Route>
                             <Route path="/cart/:id" element={<Cart />}></Route>
                             <Route path="/cart/list" element={<CartList />}></Route>
                             <Route path="/cart/shipping" element={<CartShipping />}></Route>
                             <Route path="/cart/delivery" element={<CartDelivery />}></Route>
                             <Route path="/cart/success" element={<CartSuccess />}></Route>
+                            <Route path="/user/:id" element={
+                                <UserLayout>
+                                    <User />
+                                </UserLayout>
+                            }></Route>
                         </Routes>
                     </Main>
                     <Footer />

@@ -11,7 +11,8 @@ export interface IProduct {
 export interface ICategory {
     id: string,
     attributes: {
-        title: string
+        title: string,
+        path: string
         products?: { data: []}
     }
 }
@@ -34,7 +35,28 @@ export interface ISideMenuTitle {
 export interface ICart {
     products: IProduct[],
     payment: IPayment | null,
-    shipping: IShipping | null
+    shipping: IShipping | null,
+    user: IUser | null
+}
+
+export interface IOrder {
+    id?: number,
+    attributes: {
+        date: string,
+        status: 'received' | 'sent',
+        paid: boolean,
+        products: Array<IProduct>
+    }
+}
+
+export interface IUser {
+    name: string,
+    surname: string,
+    email: string,
+    street: string,
+    city: string,
+    psc: string,
+    phone?: string
 }
 
 export interface IPayment {
@@ -58,7 +80,9 @@ export enum ActionType {
     PURGE_CART,
     DELETE_PRODUCT,
     SET_SHIPPING,
-    SET_PAYMENT
+    SET_PAYMENT,
+    USER_LOGIN,
+    USER_LOGOUT
 }
 export type CartReducerActionsType =
     { type: ActionType.ADD_PRODUCT, payload: IProduct } |
@@ -67,4 +91,6 @@ export type CartReducerActionsType =
     { type: ActionType.DELETE_PRODUCT, payload: IProduct } |
     { type: ActionType.SET_SHIPPING, payload: IShipping } |
     { type: ActionType.SET_PAYMENT, payload: IPayment } |
-    { type: ActionType.PURGE_CART }
+    { type: ActionType.PURGE_CART } |
+    { type: ActionType.USER_LOGIN, payload: IUser } |
+    { type: ActionType.USER_LOGOUT }

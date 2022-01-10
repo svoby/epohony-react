@@ -7,7 +7,7 @@ import ProductImageThumbnail from '../components/Product/ProductImageThumbnail'
 import ProductTabs from '../components/Product/ProductTabs'
 import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
 import SwiperProductSales from '../components/Swipers/SwiperProductSales'
-import { getPriceWithoutVAT, GRAPH_QL_API_ENTRYPOINT, scrollToTop } from '../global.constants'
+import { getPriceWithoutVAT, GRAPHQL_API_ENTRYPOINT, scrollToTop } from '../global.constants'
 import ShopContext from '../context/ShopContext'
 import { Col, Row, Spacer } from '../layout/Grid'
 import { ActionType, IProduct } from '../global.types'
@@ -33,7 +33,7 @@ const Product = () => {
         }
     `
     useEffect(() => {
-        request(GRAPH_QL_API_ENTRYPOINT, queryProduct)
+        request(GRAPHQL_API_ENTRYPOINT, queryProduct)
             .then(data => {
                 setProductData(data.product.data)
                 scrollToTop()

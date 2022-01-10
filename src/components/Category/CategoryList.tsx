@@ -6,7 +6,7 @@ import { ICategory } from '../../global.types';
 function CategoryListItem({ id, attributes }: ICategory) {
     return (
         <div className="col-6 col-lg-3 mb-1">
-            <Link to={`/category/${id}`} className="d-flex justify-content-between align-items-center text-micro text-900 border border-primary-alpha-25 hover-bg-primary-alpha-10 transition-primary rounded-lg pr-2">
+            <Link to={`${attributes.path}/${id}`} className="d-flex justify-content-between align-items-center text-micro text-900 border border-primary-alpha-25 hover-bg-primary-alpha-10 transition-primary rounded-lg pr-2">
                 <span className="d-inline-flex align-items-center m-1">
                     <picture className="mr-2"><img src="https://via.placeholder.com/40x40.png" alt="" /></picture>{attributes.title}
                 </span>

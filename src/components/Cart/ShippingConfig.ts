@@ -3,7 +3,8 @@ import { ICart } from "../../global.types"
 export const defaultCartState: ICart = {
     products: [],
     payment: null,
-    shipping: null
+    shipping: null,
+    user: null
 }
 
 export const payments = [

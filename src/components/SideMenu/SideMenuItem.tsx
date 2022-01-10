@@ -19,7 +19,7 @@ const SideMenuItem = ({ id, attributes }: ICategory) => {
 
     return (
         <li className="d-flex">
-            <Link to={`/category/${id}`} className={`d-flex px-2 py-2 mb-1 flex-grow-1 align-items-center rounded text-none ${addClass}`}>
+            <Link to={`${attributes.path}/${id}`} className={`d-flex p-3 mb-1 flex-grow-1 align-items-center rounded text-none ${addClass}`}>
                 <span className="mr-2 line-h-110">
                     {attributes.title}
                 </span>

@@ -28,11 +28,19 @@ const Notification = styled.span`
 
 export default function Header() {
 
-    const { cart: cart2 } = useContext(ShopContext)
-    const totalCount = cart2.products.reduce(cartQuantityReducer, 0)
-    const totalPrice = cart2.products.reduce(cartPriceReducer, 0)
+    const { cart } = useContext(ShopContext)
+    const totalCount = cart.products.reduce(cartQuantityReducer, 0)
+    const totalPrice = cart.products.reduce(cartPriceReducer, 0)
     const [offCanvasShown, setOffCanvasShown] = useState(false)
     const offCanvasTogglerHandler = () => setOffCanvasShown(prevState => !prevState)
+
+    const UserInfo = () => {
+        if (cart.user) {
+            return <><span className="fotn-weight-bold d-block">{cart.user.name} {cart.user.surname}</span> Můj účet</>
+        } else {
+            return <><span className="fotn-weight-bold d-block">Uživatel</span> nepřihlášen</>
+        }
+    }
 
     return (
         <>
@@ -41,14 +49,14 @@ export default function Header() {
                     <Link to="/"><img className="logo-main" src="/assets/images/logo-site.svg" alt="ePohony" width="145" /></Link>
                     <div className="d-none d-lg-block h5 font-weight-normal text-white mb-0">The best way to buy the products you love</div>
                     <div>
-                        <div className="d-inline-flex align-items-center text-white text-micro hover-secondary">
+                        <Link to="user/info" className="d-inline-flex align-items-center text-white text-micro hover-secondary">
                             <span className="btn-primary btn-circle bg-gradient-secondary border-0 sx-40 mr-2">
                                 <UserIcon className="ico sx-24" />
                             </span>
                             <span className="d-none d-md-block">
-                                <span className="fotn-weight-bold d-block">Jan Novák</span> Můj účet
+                                <UserInfo />
                             </span>
-                        </div>
+                        </Link>
                         <Link to="/cart/list" className="d-inline-flex align-items-center text-white text-micro ml-1 ml-md-4 hover-secondary">
                             <span className="btn-primary btn-circle bg-gradient-secondary border-0 sx-40 mr-2 position-relative">
                                 <ShoppingCartIcon className="ico sx-24" />

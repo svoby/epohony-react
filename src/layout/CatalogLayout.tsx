@@ -1,9 +1,9 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import { request, gql } from 'graphql-request'
-import SidemenuTitle from '../components/SideMenu/SideMenuTitle'
+import SideMenuTitle from '../components/SideMenu/SideMenuTitle'
 import SideMenuNav from '../components/SideMenu/SideMenuNav'
 import { Spacer, Container, Row, Col } from './Grid'
-import { GRAPH_QL_API_ENTRYPOINT } from '../global.constants'
+import { GRAPHQL_API_ENTRYPOINT } from '../global.constants'
 import { ICategory } from '../global.types'
 
 const CatalogLayout = ({ children }: { children: ReactNode }) => {
@@ -17,6 +17,7 @@ const CatalogLayout = ({ children }: { children: ReactNode }) => {
                     id
                     attributes {
                         title,
+                        path
                         products {
                             data {
                                 id
@@ -29,7 +30,7 @@ const CatalogLayout = ({ children }: { children: ReactNode }) => {
     `
 
     useEffect(() => {
-        request(GRAPH_QL_API_ENTRYPOINT, queryCategory)
+        request(GRAPHQL_API_ENTRYPOINT, queryCategory)
             .then(data => {
                 setDataMainCategories(data.categories.data)
             })
@@ -42,7 +43,7 @@ const CatalogLayout = ({ children }: { children: ReactNode }) => {
                 <Row>
                     <Col size="col-lg-3 order-1 order-lg-0">
                         <div className="pr-md-4">
-                            <SidemenuTitle title="Kategorie" />
+                            <SideMenuTitle title="Kategorie" />
                             <SideMenuNav items={dataMainCategories} />
                             <Spacer size="pt-4 pt-md-5" />
                         </div>

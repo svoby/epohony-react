@@ -44,13 +44,24 @@ const reducer = (state: ICart, action: CartReducerActionsType): ICart => {
             return { ...state, products: newProducts }
         }
         case ActionType.PURGE_CART: {
-            return defaultCartState
+            return {
+                products: [],
+                shipping: null,
+                payment: null,
+                user: state.user
+            }
         }
         case ActionType.SET_SHIPPING: {
             return { ...state, shipping: action.payload }
         }
         case ActionType.SET_PAYMENT: {
             return { ...state, payment: action.payload }
+        }
+        case ActionType.USER_LOGIN: {
+            return { ...state, user: action.payload }
+        }
+        case ActionType.USER_LOGOUT: {
+            return { ...state, user: null }
         }
         default:
             return state;

@@ -1,16 +1,27 @@
 import React, { useContext, useEffect } from 'react'
 import ShopContext from '../context/ShopContext'
 import { Container, Spacer } from '../layout/Grid'
-import { ArrowNarrowDownIcon, ArrowNarrowRightIcon, CheckIcon, GiftIcon, HomeIcon, TruckIcon } from '@heroicons/react/outline'
+import { ArrowNarrowDownIcon, ArrowNarrowRightIcon, ArrowRightIcon, CheckIcon, GiftIcon, HomeIcon, TruckIcon } from '@heroicons/react/outline'
 import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
 import { scrollToTop } from '../global.constants'
-import { ActionType } from '../global.types'
+import { ActionType, IOrder } from '../global.types'
+import { Link } from 'react-router-dom'
+import { SaveOrder } from '../components/User/API'
 
 export default function CartSuccess() {
 
-    const { dispatch } = useContext(ShopContext)
+    const { cart, dispatch } = useContext(ShopContext)
+    const order: IOrder = {
+        attributes: {
+            status: 'received',
+            date: new Date().toISOString(),
+            paid: false,
+            products: cart.products
+        }
+    }
 
     useEffect(() => {
+        SaveOrder(order)
         dispatch({ type: ActionType.PURGE_CART })
         scrollToTop()
     }, [])
@@ -25,6 +36,7 @@ export default function CartSuccess() {
                     <CheckIcon className='sx-48' />
                 </div>
                 <h1 className="h4 text-success text-center font-weight-normal">Děkujeme!<br />Objednávka byla dokončena</h1>
+                <p className="text-center"><Link to="/user/orders" className="btn btn-warning">Přejít do objednávek <ArrowRightIcon className='sx-24'></ArrowRightIcon></Link></p>
             </Container>
 
             <Spacer size="pt-7" />

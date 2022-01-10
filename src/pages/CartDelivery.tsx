@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
 import { Container, Row, Col, Spacer } from '../layout/Grid'
@@ -9,17 +9,37 @@ import CartBottomNavigation from '../components/Cart/CartBottonNavigation'
 import { scrollToTop } from '../global.constants'
 import CartSummary from '../components/Cart/CartSummary'
 import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
+import { Authenticate } from '../components/User/API'
+import { ActionType } from '../global.types'
 
 const CartDelivery = () => {
 
     const navigate = useNavigate()
-    const { cart } = useContext(ShopContext)
+    const { cart, dispatch } = useContext(ShopContext)
+    let [autoLogged, setAutoLogged] = useState(false)
 
-    useEffect(() => scrollToTop(), [])
+    useEffect(() => {
+        if (!cart.user) {
+            Authenticate()
+                .then(data => {
+                    dispatch({
+                        type: ActionType.USER_LOGIN,
+                        payload: data
+                    })
+
+                    setAutoLogged(true)
+                })
+        }
+
+        scrollToTop()
+    }, [])
 
     return (
         <Container>
             <Spacer size="pt-6" />
+
+            {!cart.user && <div className='alert alert-warning mb-5'>Automatické přihlašování uživatele…</div>}
+            {cart.products.length !== 0 && autoLogged && <div className='alert alert-success mb-5'>Uživatel byl <strong>automaticky</strong> přihlášen.</div>}
 
             <h1 className="h2 text-uppercase">Košík</h1>
 
@@ -37,36 +57,32 @@ const CartDelivery = () => {
                                 <div className="row">
                                     <div className="col-lg-8">
                                         <div className="form-group">
-                                            <label className="font-weight-semibold" htmlFor="">Jméno</label>
-                                            <input className="form-control" id="" type="text" defaultValue="Jan" />
+                                            <label className="font-weight-semibold" htmlFor="user-name">Jméno</label>
+                                            <input className="form-control" id="user-name" type="text" defaultValue={cart.user?.name} />
                                         </div>
                                         <div className="form-group">
-                                            <label className="font-weight-semibold" htmlFor="">Příjmení</label>
-                                            <input className="form-control" id="" type="text" defaultValue="Novák" />
+                                            <label className="font-weight-semibold" htmlFor="user-surname">Příjmení</label>
+                                            <input className="form-control" id="user-surname" type="text" defaultValue={cart.user?.surname} />
                                         </div>
                                         <div className="form-group">
-                                            <label className="font-weight-semibold" htmlFor="">E-mailová adresa</label>
-                                            <input className="form-control is-valid" id="" type="email" defaultValue="email@email.com" />
+                                            <label className="font-weight-semibold" htmlFor="user-email">E-mailová adresa</label>
+                                            <input className="form-control is-valid" id="user-email" type="email" defaultValue={cart.user?.email} />
                                         </div>
                                         <div className="form-group">
-                                            <label className="font-weight-semibold" htmlFor="">Telefon</label>
-                                            <input className="form-control is-valid" id="" type="text" defaultValue="+420 123 456 789" />
-                                        </div>
-                                        <div className="form-group">
-                                            <label className="font-weight-semibold" htmlFor="">Ulice a číslo</label>
-                                            <input className="form-control" id="" type="text" defaultValue="Moravské náměstí 2" />
+                                            <label className="font-weight-semibold" htmlFor="user-street">Ulice a číslo</label>
+                                            <input className="form-control" id="user-street" type="text" defaultValue={cart.user?.street} />
                                         </div>
                                         <div className="row">
                                             <div className="col-8">
                                                 <div className="form-group">
-                                                    <label className="font-weight-semibold" htmlFor="">Město</label>
-                                                    <input className="form-control" id="" type="text" defaultValue="Brno" />
+                                                    <label className="font-weight-semibold" htmlFor="user-city">Město</label>
+                                                    <input className="form-control" id="user-city" type="text" defaultValue={cart.user?.city} />
                                                 </div>
                                             </div>
                                             <div className="col-4">
                                                 <div className="form-group">
-                                                    <label className="font-weight-semibold" htmlFor="">PSČ</label>
-                                                    <input className="form-control" id="" type="text" defaultValue="602 00" />
+                                                    <label className="font-weight-semibold" htmlFor="user-psc">PSČ</label>
+                                                    <input className="form-control" id="user-psc" type="text" defaultValue={cart.user?.psc} />
                                                 </div>
                                             </div>
                                         </div>

@@ -24,6 +24,8 @@ function Sitemap() {
         ['Cart (shipping)', "/cart/shipping"],
         ['Cart (delivery)', "/cart/delivery"],
         ['Cart (success)', "/cart/success"],
+        ['User (info)', "/user/info"],
+        ['User (orders)', "/user/orders"],
     ]
 
     return (

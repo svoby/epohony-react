@@ -6,7 +6,7 @@ import CardProduct from '../components/Product/CardProduct'
 import { Row, Col, Spacer } from "../layout/Grid"
 import { request, gql } from 'graphql-request'
 import SwiperProductsInCategory from '../components/Swipers/SwiperProductsInCategory'
-import { GRAPH_QL_API_ENTRYPOINT, scrollToTop } from '../global.constants'
+import { GRAPHQL_API_ENTRYPOINT, scrollToTop } from '../global.constants'
 import { ICategoryInfo, ICategory, IProduct } from '../global.types'
 
 const Category = () => {
@@ -41,6 +41,7 @@ const Category = () => {
                     id
                     attributes {
                         title
+                        path
                     }
                 }
             }
@@ -50,7 +51,7 @@ const Category = () => {
 
         // Fetch CMS content data
         try {
-            request(GRAPH_QL_API_ENTRYPOINT, queryCategory)
+            request(GRAPHQL_API_ENTRYPOINT, queryCategory)
                 .then((data) => {
                     setDataCategoryInfo(data.category.data.attributes)
                     setDataProductsInCategory(data.category.data.attributes.products.data)
