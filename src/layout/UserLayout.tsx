@@ -6,12 +6,18 @@ import ShopContext from '../context/ShopContext'
 import { ActionType, ICategory } from '../global.types'
 import { Col, Container, Row, Spacer } from './Grid'
 
-const dataUserMenu: ICategory[] = [
+const dataLoggedUserMenu: ICategory[] = [
     {
         id: "info", attributes: { title: "Osobní údaje", path: "/user" }
     },
     {
         id: "orders", attributes: { title: "Moje objednávky", path: "/user" }
+    }
+]
+
+const dataLoggedOffMenu: ICategory[] = [
+    {
+        id: "login", attributes: { title: "Přihlášení", path: "/user" }
     }
 ]
 
@@ -35,7 +41,7 @@ const UserLayout: FC = ({ children }) => {
                     <Col size="col-lg-3 order-1 order-lg-0">
                         <div className="pr-md-4">
                             <SideMenuTitle title="Uživatelský profil" />
-                            <SideMenuNav items={dataUserMenu} />
+                            <SideMenuNav items={cart.user ? dataLoggedUserMenu : dataLoggedOffMenu} />
                             <Spacer size="pt-4 pt-md-5" />
                             {cart.user &&
                                 <>

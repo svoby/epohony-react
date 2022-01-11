@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
 import { Container, Row, Col, Spacer } from '../layout/Grid'
@@ -6,40 +6,25 @@ import { CheckIcon, ChevronRightIcon, IdentificationIcon } from '@heroicons/reac
 import SwiperAltProducts from '../components/Swipers/SwiperAltProducts'
 import CartIsEmptyWarning from "../components/Cart/CartIsEmptyWarning"
 import CartBottomNavigation from '../components/Cart/CartBottonNavigation'
-import { scrollToTop } from '../global.constants'
 import CartSummary from '../components/Cart/CartSummary'
 import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
-import { Authenticate } from '../components/User/API'
-import { ActionType } from '../global.types'
+import { FlashMessage } from '../components/FlashMessage'
+import useAutoLogin from '../components/User/useAutoLogin'
 
 const CartDelivery = () => {
 
     const navigate = useNavigate()
-    const { cart, dispatch } = useContext(ShopContext)
-    let [autoLogged, setAutoLogged] = useState(false)
+    const { cart } = useContext(ShopContext)
 
-    useEffect(() => {
-        if (!cart.user) {
-            Authenticate()
-                .then(data => {
-                    dispatch({
-                        type: ActionType.USER_LOGIN,
-                        payload: data
-                    })
-
-                    setAutoLogged(true)
-                })
-        }
-
-        scrollToTop()
-    }, [])
+    useAutoLogin(cart)
 
     return (
         <Container>
             <Spacer size="pt-6" />
 
-            {!cart.user && <div className='alert alert-warning mb-5'>Automatické přihlašování uživatele…</div>}
-            {cart.products.length !== 0 && autoLogged && <div className='alert alert-success mb-5'>Uživatel byl <strong>automaticky</strong> přihlášen.</div>}
+            {/* {!cart.user && <div className='alert alert-warning mb-5'>Automatické přihlašování uživatele…</div>}
+            {cart.products.length !== 0 && autoLogged && <div className='alert alert-success mb-5'>Uživatel byl <strong>automaticky</strong> přihlášen.</div>} */}
+            <FlashMessage />
 
             <h1 className="h2 text-uppercase">Košík</h1>
 

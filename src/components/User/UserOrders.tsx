@@ -1,8 +1,9 @@
 import request, { gql } from 'graphql-request'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import ShopContext from '../../context/ShopContext'
 import { GRAPHQL_API_ENTRYPOINT } from '../../global.constants'
-import { IOrder } from '../../global.types'
+import { ActionType, IOrder } from '../../global.types'
 import { DeleteOrder } from './API'
 import OrderTableRow from './OrderTableRow'
 
@@ -22,12 +23,20 @@ const queryOrders = gql`
 
 const UserOrders: FC = () => {
 
+    const { dispatch } = useContext(ShopContext)
     const [dataOrders, setDataOrders] = useState<IOrder[]>([])
 
     const deleteHandler = (order: IOrder) => {
         DeleteOrder(order)
             .then(() => {
                 setDataOrders((orders) => orders.filter(i => i.id !== order.id))
+                dispatch({
+                    type: ActionType.SHOW_FLASH_MESSAGE,
+                    payload: {
+                        type: 'success',
+                        text: `Objednávka <strong>č. ${order.id}</strong> smazána.`
+                    }
+                })
             })
     }
 
