@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ShopContext from '../context/ShopContext'
 import { Container, Row, Col, Spacer } from '../layout/Grid'
@@ -22,8 +22,6 @@ const CartDelivery = () => {
         <Container>
             <Spacer size="pt-6" />
 
-            {/* {!cart.user && <div className='alert alert-warning mb-5'>Automatické přihlašování uživatele…</div>}
-            {cart.products.length !== 0 && autoLogged && <div className='alert alert-success mb-5'>Uživatel byl <strong>automaticky</strong> přihlášen.</div>} */}
             <FlashMessage />
 
             <h1 className="h2 text-uppercase">Košík</h1>

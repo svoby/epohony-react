@@ -9,7 +9,7 @@ import { Col, Spacer } from '../layout/Grid'
 
 const User: FC = () => {
 
-    const { cart, dispatch } = useContext(ShopContext)
+    const { cart } = useContext(ShopContext)
     const { id: subpage } = useParams()
 
     useAutoLogin(cart)
