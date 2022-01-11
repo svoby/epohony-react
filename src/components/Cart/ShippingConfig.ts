@@ -4,7 +4,8 @@ export const defaultCartState: ICart = {
     products: [],
     payment: null,
     shipping: null,
-    user: null
+    user: null,
+    message: null
 }
 
 export const payments = [

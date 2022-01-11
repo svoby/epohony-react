@@ -1,7 +1,6 @@
 import { PencilIcon, TrashIcon } from '@heroicons/react/outline';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import ShopContext from '../../context/ShopContext';
 import { cartPriceReducer } from '../../global.constants';
 import { IOrderRow } from '../../global.types';
 

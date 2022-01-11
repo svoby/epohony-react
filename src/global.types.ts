@@ -37,6 +37,7 @@ export interface ICart {
     payment: IPayment | null,
     shipping: IShipping | null,
     user: IUser | null
+    message: IMessage | null
 }
 
 export interface IOrder {
@@ -78,6 +79,11 @@ export interface IShipping {
     price: number
 }
 
+export interface IMessage {
+    type: 'warning' | 'danger' | 'success',
+    text: string
+}
+
 export enum ActionType {
     ADD_PRODUCT,
     INCREASE_PRODUCT_COUNT,
@@ -88,7 +94,9 @@ export enum ActionType {
     SET_PAYMENT,
     USER_LOGIN,
     USER_LOGOUT,
-    DELETE_ORDER
+    DELETE_ORDER,
+    SHOW_FLASH_MESSAGE,
+    CLEAR_FLASH_MESSAGE
 }
 export type CartReducerActionsType =
     { type: ActionType.ADD_PRODUCT, payload: IProduct } |
@@ -100,4 +108,6 @@ export type CartReducerActionsType =
     { type: ActionType.PURGE_CART } |
     { type: ActionType.USER_LOGIN, payload: IUser } |
     { type: ActionType.USER_LOGOUT } |
-    { type: ActionType.DELETE_ORDER, payload: IOrder }
+    { type: ActionType.DELETE_ORDER, payload: IOrder } |
+    { type: ActionType.SHOW_FLASH_MESSAGE, payload: IMessage } |
+    { type: ActionType.CLEAR_FLASH_MESSAGE }

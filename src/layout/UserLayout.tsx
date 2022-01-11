@@ -34,7 +34,7 @@ const UserLayout: FC = ({ children }) => {
                 <Row>
                     <Col size="col-lg-3 order-1 order-lg-0">
                         <div className="pr-md-4">
-                            <SideMenuTitle title="Kategorie" />
+                            <SideMenuTitle title="Uživatelský profil" />
                             <SideMenuNav items={dataUserMenu} />
                             <Spacer size="pt-4 pt-md-5" />
                             {cart.user &&

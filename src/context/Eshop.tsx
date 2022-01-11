@@ -48,7 +48,8 @@ const reducer = (state: ICart, action: CartReducerActionsType): ICart => {
                 products: [],
                 shipping: null,
                 payment: null,
-                user: state.user
+                user: state.user,
+                message: state.message
             }
         }
         case ActionType.SET_SHIPPING: {
@@ -62,6 +63,12 @@ const reducer = (state: ICart, action: CartReducerActionsType): ICart => {
         }
         case ActionType.USER_LOGOUT: {
             return { ...state, user: null }
+        }
+        case ActionType.SHOW_FLASH_MESSAGE: {
+            return { ...state, message: action.payload }
+        }
+        case ActionType.CLEAR_FLASH_MESSAGE: {
+            return { ...state, message: null }
         }
         default:
             return state;

@@ -1,5 +1,6 @@
 import React, { FC, useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { FlashMessage } from '../components/FlashMessage'
 import { Authenticate } from '../components/User/API'
 import UserInfo from '../components/User/UserInfo'
 import UserOrders from '../components/User/UserOrders'
@@ -12,10 +13,18 @@ const User: FC = () => {
 
     const { cart, dispatch } = useContext(ShopContext)
     const { id: uriId } = useParams()
-    let [autoLogged, setAutoLogged] = useState(false)
 
     useEffect(() => {
         if (!cart.user) {
+
+            dispatch({
+                type: ActionType.SHOW_FLASH_MESSAGE,
+                payload: {
+                    type: 'warning',
+                    text: 'Automatické přihlašování uživatele…'
+                }
+            })
+
             Authenticate()
                 .then(data => {
                     dispatch({
@@ -23,7 +32,13 @@ const User: FC = () => {
                         payload: data
                     })
 
-                    setAutoLogged(true)
+                    dispatch({
+                        type: ActionType.SHOW_FLASH_MESSAGE,
+                        payload: {
+                            type: 'success',
+                            text: 'Uživatel byl <strong>automaticky</strong> přihlášen.'
+                        }
+                    })
                 })
         }
 
@@ -33,8 +48,7 @@ const User: FC = () => {
     return (
         <Col size="col-lg-9">
 
-            {!cart.user && !autoLogged && <div className='alert alert-warning mb-5'>Automatické přihlašování uživatele…</div>}
-            {cart.user && autoLogged && <div className='alert alert-success mb-5'>Uživatel byl <strong>automaticky</strong> přihlášen.</div>}
+            <FlashMessage />
 
             {/* User info */}
             {uriId === 'info' && cart.user && <UserInfo user={cart.user} />}
