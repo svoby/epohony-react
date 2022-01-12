@@ -60,7 +60,7 @@ export default function Header() {
                         <Link to="/cart/list" className="d-inline-flex align-items-center text-white text-micro ml-1 ml-md-4 hover-secondary">
                             <span className="btn-primary btn-circle bg-gradient-secondary border-0 sx-40 mr-2 position-relative">
                                 <ShoppingCartIcon className="ico sx-24" />
-                                <Notification>{totalCount}</Notification>
+                                <Notification><span role="header-total">{totalCount}</span></Notification>
                             </span>
                             <span className="d-none d-md-block">
                                 <span className="font-weight-bold d-block">{totalPrice} Kč</span> Košík

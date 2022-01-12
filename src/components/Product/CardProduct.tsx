@@ -48,6 +48,7 @@ const CardProduct = ({ product }: { product: IProduct }) => {
                     {({ dispatch }) => (
                         <button
                             className="btn btn-secondary d-inline-flex justify-content-between align-items-center w-100 text-uppercase mt-3"
+                            role="add-product"
                             onClick={() => {
                                 dispatch({ type: ActionType.ADD_PRODUCT, payload: product })
                                 navigate(`/cart/${product.id}`)

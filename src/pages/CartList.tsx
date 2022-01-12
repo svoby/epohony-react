@@ -9,6 +9,7 @@ import CartIsEmptyWarning from '../components/Cart/CartIsEmptyWarning'
 import { cartPriceReducer, getPriceWithoutVAT, scrollToTop } from '../global.constants'
 import CartBottomNavigation from '../components/Cart/CartBottonNavigation'
 import { IconBox, Step, StepsWrapper } from '../components/Cart/CartSteps'
+import CardProductAlt from '../components/Product/CardProductAlt'
 
 const CartList = () => {
 
@@ -95,12 +96,16 @@ const CartList = () => {
 
             <Spacer size="pt-6" />
 
-            <h3>Alternativní produkty</h3>
-            <SwiperAltProducts />
-            <Spacer size="pt-5" />
-
             <h3>Příslušenství</h3>
-            <SwiperAltProducts />
+            {/* <SwiperAltProducts /> -- Jest testing bug */}
+            <Row>
+                <Col size="col-md-4 mb-4">
+                    <CardProductAlt />
+                </Col>
+                <Col size="col-md-4 mb-4">
+                    <CardProductAlt />
+                </Col>
+            </Row>
             <Spacer size="pt-5" />
 
         </Container>

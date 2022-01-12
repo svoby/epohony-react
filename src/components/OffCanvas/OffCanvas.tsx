@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import request, { gql } from 'graphql-request'
 import { GRAPHQL_API_ENTRYPOINT } from '../../global.constants'
 import { PlusIcon } from '@heroicons/react/outline'
@@ -24,12 +24,18 @@ const queryCategories = gql`
 const OffCanvas = ({ shown, togglerHandler }: IOffCanvas) => {
 
     const [categories, setCategories] = useState<Array<ICategory>>([])
+    const mountedRef = useRef(true)
 
     useEffect(() => {
         request(GRAPHQL_API_ENTRYPOINT, queryCategories)
             .then(data => {
+
+                if (!mountedRef.current)
+                    return null;
+
                 setCategories(data.categories.data)
             })
+        return () => { mountedRef.current = false }
     }, [])
 
     return (
