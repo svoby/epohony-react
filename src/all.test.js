@@ -52,7 +52,7 @@ test('render empty cart, test error message and button', () => {
     expect(screen.getByText('Zobrazit katalog')).toBeInTheDocument()
 })
 
-test('render cart, add product, increment count, ten decrement twice', () => {
+test('render cart, add product, increment count, then decrement twice', () => {
 
     render(
         <MemoryRouter>
